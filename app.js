@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const express = require('express');
 const favicon = require('serve-favicon');
 const http = require('http');
-const i18n = require('i18n');
 const path = require('path');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
@@ -34,13 +33,6 @@ if (cluster.isMaster) {
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
 
-  i18n.configure({
-    locales: ['tr', 'en'],
-    directory: __dirname + '/translations',
-    queryParameter: 'lang',
-    defaultLocale: 'en'
-  });
-
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(bodyParser.json({ limit: MAX_SERVER_UPLOAD_LIMIT }));
@@ -49,7 +41,6 @@ if (cluster.isMaster) {
     limit: MAX_SERVER_UPLOAD_LIMIT,
     parameter: MAX_SERVER_PARAMETER_LIMIT
   }));
-  app.use(i18n.init);
 
   app.use((req, res, next) => {
     res.locals.URL = URL;
