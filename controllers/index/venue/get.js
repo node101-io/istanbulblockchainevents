@@ -1,10 +1,10 @@
 module.exports = (req, res) => {
-  return res.render('index/index', {
-    page: 'index/index',
+  return res.render('index/venue', {
+    page: 'index/venue',
     title: 'İstanbul Blockchain Events',
     includes: {
       external: {
-        css: ['general', 'page'],
+        css: ['general', 'header', 'page'],
         js: ['page', 'serverRequest']
       },
       meta: {
@@ -13,6 +13,6 @@ module.exports = (req, res) => {
         image: '/img/meta/header.png',
         twitter: true
       }
-    },
+    }
   });
 };

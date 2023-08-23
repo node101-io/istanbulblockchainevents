@@ -3,24 +3,27 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Bricolage Grotesque", Helvetica, sans-serif;
 }
+
 html {
   width: 100vw;
   height: 100vh;
   margin: 0px;
   padding: 0px;
   overflow: hidden;
-	background-size: cover;
-	background: var(--background-color);
+  background-size: cover;
+  background: var(--background-color);
 }
+
 body {
-  margin: 0px;
-  padding: 0px;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: var(--background-color);
+  background-color: var(--website-background-color);
+  overflow-y: scroll;
 }
 
 input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
@@ -51,68 +54,42 @@ input[type=number] {
 }
 
 :root {
-  --page-horizontal-padding: 80px;
-  --content-horizontal-padding: 170px;
-  --box-padding: 30px;
+  --header-background-color: rgba(0, 0, 0, 0.4);
+  --default-text-color: rgba(217, 217, 217, 1);
+  --website-background-color: rgba(20, 20, 20, 1);
+  --top-intro-paragraph-color: rgba(238, 246, 252, 1);
+  --top-intro-title-color: rgba(255, 255, 255, 1);;
+  --gradient-title-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(104, 242, 158, 1) 100%);
+  --gradient-text-color: linear-gradient(47deg, rgba(255, 120, 37, 1) 10.98%, rgba(104, 242, 158, 1) 100%, rgba(91, 124, 255, 1) 100%);
+  --main-events-color: rgba(104, 242, 158, 1);
+  --side-events-color: rgba(91, 124, 255, 1);
+  --party-color: rgba(255, 120, 37, 1);
+  --inactive-scroll-button-color: rgba(192, 161, 144, 1);
+  --event-bar-bg-color: rgba(33, 33, 33, 1); 
+  --footer-email-button-text-color: rgba(121,122,122,1);
+  --footer-divider-color: rgba(42,42,42,1);
 
-  --main-color: rgba(255, 96, 58, 1);
-  --box-color: rgba(254, 254, 254, 1);
-  --background-color: rgba(248, 248, 248, 1);
-  --background-color-two: rgba(254, 254, 254, 1);
-  --border-color: rgba(7, 7, 7, 1);
-  --hover-color: rgba(148, 148, 148, 0.2);
-  --hover-color-light: rgba(254, 254, 254, 0.8);
-  --text-color: rgba(254, 254, 254, 1);
-  --text-color-two: rgba(212, 212, 212, 1);
-  --placeholder-color: rgba(248, 248, 248, 0.6);
+  --header-height: 100px;
+  --header-padding: 201px;
+
+  --ist-blockchain-events-logo-footer-width: 678px;
+  --footer-title-width: 1160px;
+  --footer-title-height: 200px;
+  --footer-email-button-width: 458px;
+  --footer-email-button-height: 55px;
+  --footer-email-button-border-radius: 107px;
+
+  --footer-subscribe-button-width: 146px;
+  --footer-subscribe-button-height: 40px;
+  --footer-subscribe-button-margin-top: 20px;
+
+  --footer-plain-text-fontsize: 16px;
 }
 
 .display-none {
   display: none !important;
 }
+
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
-}
-
-@media only screen and (min-width: 1900px) {
-  :root {
-    --page-horizontal-padding: calc((100vw - 1900px) / 2 + 80px);
-    --content-horizontal-padding: calc((100vw - 1900px) / 2 + 170px);
-  }
-}
-@media only screen and (max-width: 1700px) {
-  :root {
-    --page-horizontal-padding: 70px;
-    --content-horizontal-padding: 150px;
-  }
-}
-@media only screen and (max-width: 1500px) {
-  :root {
-    --page-horizontal-padding: 60px;
-    --content-horizontal-padding: 110px;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  :root {
-    --page-horizontal-padding: 40px;
-    --content-horizontal-padding: 40px;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  :root {
-    --box-padding: 20px;
-  }
-}
-@media only screen and (max-width: 700px) {
-  :root {
-    --page-horizontal-padding: 25px;
-    --content-horizontal-padding: 25px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  :root {
-    --page-horizontal-padding: 20px;
-    --content-horizontal-padding: 20px;
-    --box-padding: 15px;
-  }
 }

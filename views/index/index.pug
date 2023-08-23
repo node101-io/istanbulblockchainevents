@@ -1,23 +1,186 @@
-extends ../partials/head
-block content
-  .all-wrapper
-    .all-header
-      span Header
-    .all-content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-      span Content
-    .all-footer
-      span Footer
+extends ../partials/header
+block main
+  .all-content
+    .top-intro
+      .top-intro-left
+        h1
+          div
+            span FIND YOUR
+          .top-intro-left-lower-title
+            span BLOCKCHAIN 
+            svg.istanbul-blockchain-events-logo(viewbox='0 0 49 49' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M34.0707 22.9006C37.8095 22.4666 41.7571 22.0082 46.341 22.0082C50.1255 22.0082 47.6609 24.7997 46.6862 25.7733C46.4675 25.9918 46.1694 26.1039 45.8594 26.1017C41.5283 26.071 37.7328 25.6319 34.123 25.2138C31.0727 24.8606 28.1549 24.5228 25.1584 24.46C27.3141 26.5164 29.5999 28.3151 31.9944 30.1994C34.9465 32.5227 38.0636 34.9761 41.3048 38.2008C43.9807 40.8632 40.2542 41.1033 38.8731 41.1061C38.5632 41.1067 38.2726 40.9763 38.055 40.7566C35.0143 37.6877 32.6428 34.7066 30.3872 31.8714L30.3851 31.8686C28.4798 29.474 26.6573 27.1833 24.584 25.0316C24.647 28.002 24.9848 30.882 25.3386 33.8988C25.775 37.6188 26.2357 41.5468 26.2357 46.1075C26.2357 49.8729 23.4301 47.4207 22.4516 46.451C22.232 46.2334 22.1192 45.9367 22.1214 45.6283C22.1523 41.3192 22.5939 37.5429 23.0139 33.9514L23.0141 33.9486C23.3689 30.9143 23.7083 28.0121 23.7715 25.0316C21.7063 27.175 19.8991 29.4481 18.0066 31.8289L18.0034 31.8327C15.7511 34.6658 13.3774 37.6517 10.3032 40.7538C10.0839 40.9751 9.79044 41.1059 9.47809 41.1033C8.09926 41.0921 4.40905 40.8292 7.05057 38.2008C10.2554 35.0121 13.3675 32.5611 16.322 30.2345L16.3297 30.229L16.3357 30.2243C18.7387 28.3311 21.0374 26.52 23.197 24.46C20.2005 24.5228 17.2827 24.8606 14.2324 25.2138C10.4893 25.6473 6.5468 26.1034 2.0144 26.1034C-1.72135 26.1034 0.701148 23.3213 1.66815 22.3433C1.88721 22.1217 2.18761 22.0077 2.49997 22.0099C6.87808 22.0407 10.6785 22.482 14.2846 22.9006L14.2907 22.9015C17.3207 23.2531 20.2136 23.5889 23.197 23.6516C21.0374 21.5917 18.7387 19.7806 16.3357 17.8873L16.3297 17.8827L16.322 17.8772C13.3675 15.5505 10.2554 13.0996 7.05057 9.91084C4.40905 7.28257 8.09926 7.0196 9.47809 7.00836C9.79044 7.00581 10.0839 7.13657 10.3032 7.35787C13.3774 10.4599 15.7511 13.4458 18.0034 16.279L18.0066 16.2827C19.8991 18.6635 21.7063 20.9366 23.7715 23.08C23.7082 20.0987 23.3687 17.1954 23.0139 14.1603C22.5784 10.4363 22.1197 6.51355 22.1197 2.00417C22.1197 -1.7126 24.9159 0.697576 25.8988 1.65968C26.1215 1.87764 26.2362 2.17658 26.2339 2.48737C26.203 6.84347 25.7595 10.6249 25.3386 14.2128C24.9848 17.2296 24.647 20.1097 24.584 23.08C26.6581 20.9275 28.4812 18.6359 30.3872 16.2403C32.6428 13.4051 35.0143 10.4239 38.055 7.35505C38.2726 7.13544 38.5632 7.00497 38.8731 7.0056C40.2542 7.00838 43.9807 7.2485 41.3048 9.91084C38.0636 13.1355 34.9465 15.589 31.9944 17.9122C29.6001 19.7965 27.3142 21.5953 25.1586 23.6516C28.1419 23.5889 31.0347 23.2531 34.0646 22.9015L34.0707 22.9006Z' fill='url(#paint0_linear_1_97)')
+              defs
+                lineargradient#paint0_linear_1_97(x1='5.79533' y1='8.02239' x2='41.6352' y2='46.0589' gradientunits='userSpaceOnUse')
+                  stop(offset='0.109839' stop-color='#FF7825')
+                  stop(offset='0.65653' stop-color='#68F29E')
+                  stop(offset='1' stop-color='#5B7CFF')
+            span.gradient-title EVENT IN ISTANBUL
+        p
+          span Istanbul Blockchain Events is a public-good project that allows you to find all crypto events held in Istanbul and is fully funded by 
+          span.gradient-text node101.
+      .top-intro-right
+        img.top-right-event-image(src=`${URL}/img/main-page-eth-photo.webp` alt='')
+        p.event-name ETH Istanbul Devconnect
+        .box-bottom-info
+          p.event-info March 16th, 2023
+          p.event-info Conference
+        .pages-scroll-buttons
+          .pages-scroll-buttons-active
+          .pages-scroll-buttons-inactive
+          .pages-scroll-buttons-inactive
+          .pages-scroll-buttons-inactive
+    .bottom-content
+      .sidebar
+        .bar
+          .bar-content
+            p Search
+            svg.search-icon(viewbox='0 0 24 25' xmlns='http://www.w3.org/2000/svg')
+              path(d='M21.75 21.1895L16.0859 15.5254C17.447 13.8914 18.1257 11.7956 17.9808 9.67399C17.836 7.55236 16.8788 5.56824 15.3083 4.13438C13.7378 2.70053 11.675 1.92733 9.549 1.97565C7.42298 2.02396 5.39742 2.89006 3.89371 4.39377C2.39 5.89748 1.5239 7.92304 1.47558 10.0491C1.42727 12.1751 2.20047 14.2379 3.63432 15.8084C5.06818 17.3788 7.0523 18.336 9.17393 18.4809C11.2956 18.6257 13.3914 17.947 15.0253 16.586L20.6894 22.2501L21.75 21.1895ZM2.99999 10.2501C2.99999 8.91503 3.39588 7.60999 4.13757 6.49996C4.87927 5.38992 5.93348 4.52476 7.16688 4.01387C8.40028 3.50298 9.75748 3.3693 11.0669 3.62975C12.3762 3.8902 13.579 4.53308 14.523 5.47708C15.467 6.42109 16.1098 7.62382 16.3703 8.9332C16.6307 10.2426 16.4971 11.5998 15.9862 12.8332C15.4753 14.0666 14.6101 15.1208 13.5001 15.8625C12.3901 16.6042 11.085 17.0001 9.74999 17.0001C7.96039 16.9981 6.24466 16.2863 4.97922 15.0208C3.71378 13.7554 3.00198 12.0397 2.99999 10.2501Z' fill='#EEF6FC')
+        .bar
+          .bar-content
+            p Date
+            svg.list-tray-icon(viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
+        .bar-extension-date-selection
+          .bar-content
+            .date-selection-background
+              div All Dates
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         January
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         February
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         March
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         April
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         May
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         June
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         July
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         August
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         September
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         October
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         November
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         December
+        .bar
+          .bar-content
+            p Type
+            svg(width='16' height='17' viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
+        .bar-extension-type-selection
+          .bar-content
+            .type-selection-wrapper
+              div All
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span.main-events Main Event
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span.side-events Side Event
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span.party Party
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Conference
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Hackathon
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Meetup
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Workshop
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Dinner
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Brunch
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Co-Living
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         NFTs
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Tour
+              div
+                svg(width='12' height='12' viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                span                                         Other
+        .submit-button
+          span Submit Event
+      .main-content
+        .event-bar
+          .bar-information
+            .event-title.main-events Ravemos
+            .event-date Oct 3
+            .event-type Main Event
+        .event-bar
+          .bar-information
+            .event-title.side-events ETH Istanbul Development
+            .event-date Oct 3
+            .event-type Side Event
+        .event-bar
+          .bar-information
+            .event-title.party Ravemos
+            .event-date Oct 3
+            .event-type Party
+            
+        .event-bar
+          .bar-information
+            .event-title.main-events Ravemos
+            .event-date Oct 3
+            .event-type Main Event
+        .event-bar
+          .bar-information
+            .event-title.side-events ETH Istanbul Development
+            .event-date Oct 3
+            .event-type Side Event

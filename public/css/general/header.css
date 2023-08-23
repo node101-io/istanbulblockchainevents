@@ -1,0 +1,359 @@
+
+.all-wrapper {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.all-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background-color: var(--header-background-color);
+  color: var(--default-text-color);
+  width: 100%;
+  height: var(--header-height);
+  flex-shrink: 0;
+  padding: 0 var(--header-padding);
+}
+
+.all-content {
+  height: fit-content;
+  min-height: fit-content;
+  width: 100vw;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--header-height);
+}
+
+.all-footer {
+  background-color: var(--website-background-color);
+  width: 100vw;
+  min-width: 100vw;
+  height: fit-content;
+  min-height: fit-content;
+  padding: 50px var(--header-padding);
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.header-blockchain-events-logo-text {
+  width: 189px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 46px;
+}
+
+.header-nav a { 
+  color: var(--default-text-color);
+  text-decoration: none;
+}
+
+.ist-blockchain-events-logo-footer {
+  width: var(--ist-blockchain-events-logo-footer-width);
+  min-width: var(--ist-blockchain-events-logo-footer-width);
+}
+
+.footer-title {
+  width: var(--footer-title-width);
+  min-width: var(--footer-title-width);
+  height: var(--footer-title-height);
+  min-width: var(--footer-title-height);
+  margin-top: 50px;
+}
+
+.footer-email-button {
+  display: flex;
+  width: var(--footer-email-button-width);
+  height: var(--footer-email-button-height);
+  flex-shrink: 0;
+  border-radius: var(--footer-email-button-border-radius);
+  background: rgba(0, 0, 0, 0.60);
+  align-items: center;
+  margin-top: 5%;
+}
+
+.footer-email-button-text {
+  color: var(--footer-email-button-text-color);
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 30px;
+}
+
+.footer-subscribe-button {
+  display: flex;
+  width: var(--footer-subscribe-button-width);
+  height: var(--footer-subscribe-button-height);
+  padding: var(--submit-button-padding);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--bar-border-radius);
+  background: var(--main-events-color);
+  color: var(--body-background-color);
+  font-size: var(--bar-fontsize);
+  font-weight: 400;
+  margin-top: var(--footer-subscribe-button-margin-top);
+}
+
+.footer-bottom-information-page-hyperlinks {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  height: 161px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.footer-contact-mail {
+  color: var(--footer-email-button-text-color);
+  font-size: var(--footer-plain-text-fontsize);
+  font-style: normal;
+  font-weight: 400;
+  margin-top: var(--header-height);
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  border-radius: var(--footer-email-button-border-radius);
+  background: var(--footer-divider-color);
+  margin-top: 35px;
+}
+
+.footer-bottom-information {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 66px 0;
+}
+
+.footer-bottom-links {
+  display: inline-block;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.telegram-icon, .x-icon, .github-icon, .website-icon {
+  width: 19px;
+  height: 20px;
+}
+
+.footer-page-link {
+  color: var(--top-intro-paragraph-color);
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  text-decoration: none;
+  margin-right: 25px;
+}
+
+.footer-link-active {
+  color: var(--main-events-color);
+}
+
+.footer-social-media-logos {
+  display: flex;
+  width: fit-content;
+  align-items: flex-end;
+  gap: 17px;
+  flex-shrink: 0;
+}
+
+.footer-copyright-information {
+  width: 100%;
+  min-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.footer-design-develop, .footer-all-rights-reserved {
+  white-space: nowrap;
+  color: var(--default-text-color);
+  font-size: var(--footer-plain-text-fontsize);
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 1900px) {
+  :root {
+      --header-padding: calc((100vw - 1900px) / 2 + 201px);
+  }
+}
+@media only screen and (max-width: 1700px) {
+  :root {
+      --header-padding: calc((100vw - 1700px) / 2 + 201px);
+  }
+}
+@media only screen and (max-width: 1500px) {
+  :root {
+      --header-padding: calc((100vw - 1500px) / 2 + 201px);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  :root {
+      --header-padding: calc((100vw - 1200px) / 2 + 201px);
+  }
+  .sidebar{
+      display: none;
+  }
+  .ist-blockchain-events-logo-footer {
+      width: calc(var(--ist-blockchain-events-logo-footer-width)/2);
+      min-width: calc(var(--ist-blockchain-events-logo-footer-width)/2);
+      margin: 0;
+  }
+  .footer-title {
+      width: calc(var(--footer-title-width)/2);
+      min-width: calc(var(--footer-title-width)/2);
+      margin-top: 0;
+  }
+  .footer-social-media-logos {
+      display: none;
+  }
+
+  .footer-bottom-information {
+      justify-content: space-around;
+  }
+
+  .footer-page-link {
+      font-size: 25px;
+  }
+
+  .footer-bottom-links a:last-child{
+      margin-right: 0;
+  }
+  .footer-design-develop, .footer-all-rights-reserved {
+      font-size: 12px;
+  }
+
+}
+@media only screen and (max-width: 1000px) {
+  :root {
+      --header-padding: calc((100vw - 1000px) / 2 + 201px);
+  }
+  .footer-page-link {
+      font-size: 18px;
+  }
+  .footer-design-develop, .footer-all-rights-reserved {
+      font-size: 10px;
+  }
+
+}
+@media only screen and (max-width: 670px) {
+  :root {
+      --header-padding: 18px;
+  }
+  .header-nav {
+      display: none;
+  }
+  .all-header {
+      justify-content: center;
+  }
+
+}
+
+@media only screen and (max-width: 630px) {
+
+  .footer-bottom-information {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 30px 0;
+  }
+
+  .footer-bottom-links {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 24px;
+  }
+
+  .footer-page-link {
+      font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+      --header-padding: 30px;
+  }
+  .ist-blockchain-events-logo-footer {
+      width: 250px;
+      min-width: 250px;
+  }
+  .footer-title {
+      width: 450px;
+      min-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  :root {
+      --header-padding: 10px;
+  }
+
+  .footer-title {
+      width: 350px;
+      min-width: 350px;
+  }
+
+  .footer-copyright-information {
+      width: 40%;
+      min-width: 40%;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      
+  }
+
+  .footer-design-develop, .footer-all-rights-reserved {
+      color: #696969;
+  }
+
+  .footer-email-button {
+      width: 361px;
+  }
+
+  .footer-subscribe-button {
+      justify-content: flex-start;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+      --header-padding: 10px;
+  }
+
+  .top-intro {
+      display: none;
+  }
+}

@@ -1,0 +1,463 @@
+:root {
+  --header-background-color: rgba(0, 0, 0, 0.4);
+  --default-text-color: rgba(217, 217, 217, 1);
+  --website-background-color: rgba(20, 20, 20, 1);
+  --top-intro-paragraph-color: rgba(238, 246, 252, 1);
+  --top-intro-title-color: rgba(255, 255, 255, 1);;
+  --gradient-title-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(104, 242, 158, 1) 100%);
+  --gradient-text-color: linear-gradient(47deg, rgba(255, 120, 37, 1) 10.98%, rgba(104, 242, 158, 1) 100%, rgba(91, 124, 255, 1) 100%);
+  --main-events-color: rgba(104, 242, 158, 1);
+  --side-events-color: rgba(91, 124, 255, 1);
+  --party-color: rgba(255, 120, 37, 1);
+  --inactive-scroll-button-color: rgba(192, 161, 144, 1);
+  --event-bar-bg-color: rgba(33, 33, 33, 1); 
+  --footer-email-button-text-color: rgba(121,122,122,1);
+  --footer-divider-color: rgba(42,42,42,1);
+
+  --header-height: 100px;
+  --header-padding: 201px;
+
+  --ist-blockchain-events-logo-footer-width: 678px;
+  --footer-title-width: 1160px;
+  --footer-title-height: 200px;
+  --footer-email-button-width: 458px;
+  --footer-email-button-height: 55px;
+  --footer-email-button-border-radius: 107px;
+
+  --footer-subscribe-button-width: 146px;
+  --footer-subscribe-button-height: 40px;
+  --footer-subscribe-button-margin-top: 20px;
+
+  --footer-plain-text-fontsize: 16px;
+
+}
+
+.istanbul-guide-top-section {
+  width: 100vw;
+  height: fit-content;
+  max-height: fit-content;
+  display: inline-flex;
+  padding: 50px var(--header-padding);
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+}
+
+.istanbul-guide-top-section-left {
+  width: 50%;
+  font-size: 83px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.66px;
+  background: linear-gradient(146deg,#FFF 30%, #5B7CFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.istanbul-guide-top-section-right {
+  width: 50%;
+}
+
+.istanbul-guide-intro-photo {
+  width: 100%;
+  height: auto;
+}
+
+.istanbul-guide-bottom-section {
+  width: 100vw;
+  min-width: 100vw;
+  height: fit-content;
+  max-height: fit-content;
+  display: inline-flex;
+  padding: 50px var(--header-padding);
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.istanbul-guide-side-bar {
+  display: flex;
+  flex: 1;
+}
+
+.istanbul-guide-side-bar-links {
+  width: 10%;
+  min-width: 305px;
+  height: auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 78px;
+  padding: var(--top-intro-padding);
+}
+
+.side-bar-divider {
+  width: 1px;
+  height: 785px;
+  background: #777;
+}
+
+.side-bar-element {
+  width: 100%;
+  height: 32px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #EEF6FC;
+  text-decoration: none;
+}
+
+.side-bar-element-active {
+  color: #5B7CFF;
+}
+
+.istanbul-guide-main-content {
+  width: 70%;
+  min-width: 70%;
+  height: fit-content;
+  flex: 3;
+}
+
+#istanbul-guide-general-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px;
+}
+
+.istanbul-guide-main-content h1 {
+  width: fit-content;
+  height: fit-content;
+  color: #EEF6FC;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+h2 {
+  width: fit-content;
+  height: fit-content;
+  color: #EEF6FC;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.istanbul-guide-main-content p {
+  width: fit-content;
+  color: #EEF6FC;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 37px;
+}
+
+h3 {
+  color: #D9D9D9;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+
+.quick-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 66px;
+}
+
+.quick-tips-bar {
+  display: flex;
+  width: 100%;
+  height: 83px;
+  padding: var(--bar-padding);
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background: #212121;
+}
+
+.quick-tips-bar-text {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  padding: 0 37px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+.quick-tip-bar-left {
+  color: #5B7CFF;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.quick-tip-bar-right {
+  color: #D9D9D9;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+#getting-to-istanbul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+#getting-to-istanbul h3 {
+  margin-bottom: 24px;
+}
+
+.airports-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.airport-bar {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  height: 191px;
+  padding: 24px 35px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 23px;
+  border-radius: 10px;
+  background: #212121;
+}
+
+.airport-icao-code {
+  color: #EEF6FC;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.airport-full-name {
+  color: #EEF6FC;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.airports-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.airport-detail {
+  width: fit-content;
+  height: 32px;
+  color: #EEF6FC;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.airport-code-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.get-directions-button {
+  display: flex;
+  width: 166px;
+  height: 40px;
+  padding: 16px 40px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #5B7CFF;
+  background: #5B7CFF;
+  color: #141414;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#where-to-stay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+.outer-links-with-arrow {
+  display: flex;
+  height: auto;
+  align-items: flex-start;
+  gap: 14px;
+  margin-left: auto;
+  justify-content: flex-start;
+}
+
+.outer-link {
+  align-items: center;
+  text-decoration: none;
+  width: fit-content;
+  height: auto;
+  color: #5B7CFF;
+  font-size: 24px;
+  font-weight: 400;
+  flex-wrap: wrap;
+}
+
+.link-arrow {
+  width: 15.564px;
+  min-width: 15.564px;
+  height: 20.353px;
+  min-height: 20.353px;
+}
+
+.istanbul-map-accom {
+  width: 100%;
+  height: auto;
+}
+
+#history-culture-food {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+.blue-highlight {
+  color: #5B7CFF;
+}
+
+#history-culture-food .outer-links-with-arrow, #tips-from-locals .outer-links-with-arrow, #transportation .outer-links-with-arrow{
+  margin-left: 0;
+  margin-top: -20px;
+}
+
+#tips-from-locals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+.bold-colored {
+  color: #5B7CFF;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+li {
+  color: #EEF6FC;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 37px;
+  margin-left: 30px;
+}
+
+#tips-from-locals .outer-links-with-arrow {
+  margin-bottom: -20px;
+}
+
+#transportation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+#safety {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 60px; 
+}
+
+@media only screen and (max-width: 1400px) {
+  
+  .istanbul-guide-side-bar-links {
+      min-width: 240px;
+  }
+
+  .istanbul-guide-top-section {
+      flex-direction: column;
+  }
+
+  .istanbul-guide-top-section-left {
+      order: 2;
+      min-width: 100%;
+      margin-top: 50px;
+  }
+
+  .istanbul-guide-top-section-right {
+      order: 1;
+      min-width: 100%;
+  }
+
+  .side-bar-element {
+      font-size: 18px;
+  }
+
+  .istanbul-guide-side-bar-links {
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 30px;
+  }
+
+  .side-bar-divider {
+      width: 1px;
+      height: 400px;
+      background: #777;
+  }
+  
+  
+}
+
+@media only screen and (max-width: 1100px) {
+
+  :root {
+      --header-padding: 40px;
+  }
+
+  .istanbul-guide-side-bar {
+      display: none;
+  }
+  
+  
+}
+
+@media only screen and (max-width: 700px) {
+
+  .airport-detail {
+      display: none;
+  }
+  
+  
+}
+
+@media only screen and (max-width: 600px) {
+
+  :root {
+      --header-padding: 40px;
+  }
+
+  .istanbul-guide-side-bar {
+      display: none;
+  }
+
+  .istanbul-guide-top-section {
+      display: none;
+  }
+  
+  
+}
+

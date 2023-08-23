@@ -1,0 +1,281 @@
+extends ../partials/header
+block main
+  .all-content
+    .istanbul-guide-top-section
+      .istanbul-guide-top-section-left
+        p Hoşgeldin!
+        p Istanbul Guide
+      .istanbul-guide-top-section-right
+        svg.istanbul-guide-intro-photo(viewbox='0 0 747 301' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+          rect(width='747' height='301' rx='30' fill='url(#pattern0)')
+          rect(width='747' height='301' rx='30' fill='url(#paint0_linear_33_32)' fill-opacity='0.2')
+          defs
+            pattern#pattern0(patterncontentunits='objectBoundingBox' width='1' height='1')
+              use(xlink:href='#image0_33_32' transform='matrix(0.000370608 0 0 0.000906205 -0.123956 -0.272464)')
+            lineargradient#paint0_linear_33_32(x1='0' y1='0' x2='181.4' y2='504.407' gradientunits='userSpaceOnUse')
+              stop(stop-color='#4080FA')
+              stop(offset='0.208333' stop-color='#3F49F9')
+              stop(offset='0.34375' stop-color='#3E21F9')
+              stop(offset='0.4375' stop-color='#3D09F9')
+              stop(offset='0.614583' stop-color='#3D00F9')
+              stop(offset='0.6875' stop-color='#4607F8')
+              stop(offset='0.84375' stop-color='#5E19F4')
+              stop(offset='1' stop-color='#8636ED')
+        //- image !!!!!!
+    .istanbul-guide-bottom-section
+      .istanbul-guide-side-bar
+        .istanbul-guide-side-bar-links
+          a.side-bar-element.side-bar-element-active(href='#general-info') General info
+          a.side-bar-element(href='#getting-to-istanbul') Getting to Istanbul
+          a.side-bar-element(href='#where-to-stay') Where to Stay
+          a.side-bar-element(href='#history-culture-food') History, Culture &amp; Food
+          a.side-bar-element(href='#tips-from-locals') Tips from Locals
+          a.side-bar-element(href='#transportation') Transportation
+          a.side-bar-element(href='#safety') Safety
+        .side-bar-divider
+      .istanbul-guide-main-content
+        #istanbul-guide-general-info
+          h1 General Info
+          h2 The Intercontinental City
+          p
+            span Welcome to Istanbul, the capital of the Roman, Byzantine, and Ottoman Empires, the pearl of the Bosphorus, and the geographical, cultural, and commercial bridge where the East and the West meet.
+          p
+            span You can reach Istanbul, one of the most visited cities in the world, with its new and big airport (IST). Istanbul is the largest city in Europe. The city is quite affordable; public transportation is developed and cheap, and its residents are hospitable. Things to do before leaving the city; visit Hagia Sophia, Basilica Cistern, Topkapi and Dolmabahce Palaces, Bosphorus, and Grand Bazaar; Eat baklava, Turkish delight, doner kebabs and drink Turkish coffee and raki.
+        .quick-tips
+          h3 Quick Tips
+          .quick-tips-bar
+            .quick-tips-bar-text
+              .quick-tip-bar-left GMT+3
+              .quick-tip-bar-right Timezone
+          .quick-tips-bar
+            .quick-tips-bar-text
+              .quick-tip-bar-left Tourist Visa (30/90 Days) &amp; E-Visa
+              .quick-tip-bar-right Requirements
+          .quick-tips-bar
+            .quick-tips-bar-text
+              .quick-tip-bar-left Turkish Lira
+              .quick-tip-bar-right Currency
+          .quick-tips-bar
+            .quick-tips-bar-text
+              .quick-tip-bar-left Turkish
+              .quick-tip-bar-right Official Language
+          .quick-tips-bar
+            .quick-tips-bar-text
+              .quick-tip-bar-left There are four climates
+              .quick-tip-bar-right Weather
+        #getting-to-istanbul
+          h1 Getting to Istanbul
+          p
+            span Visa Requirements: Get your visa before you start your trip. Fortunately, Türkiye offers visa-free visits to citizens of many countries. Find out if you need a Visa by clicking here.
+          h3 Istanbul Airports
+          .airports-buttons
+            .airport-bar
+              .airports-information
+                .airport-code-name
+                  .airport-icao-code IST
+                  .airport-full-name Istanbul Airport
+                .airport-detail
+                  span Istanbul's main airport, located on the European side, can be reached by metro, bus, and taxi.
+              button.get-directions-button Get Directions
+            .airport-bar
+              .airports-information
+                .airport-code-name
+                  .airport-icao-code SAW
+                  .airport-full-name Sabiha Sabiha Gökçen Airport Airport
+                .airport-detail
+                  span Istanbul's secondary airport, located on the Asian side, can be reached by metro, bus, and taxi.
+              button.get-directions-button Get Directions
+        #where-to-stay
+          h1 Where to Stay
+          p
+            span The Bosphorus divides Istanbul right in the middle. Districts where you can stay on the 
+            strong
+              span European side: Historical peninsula (Fatih), Beyoğlu, Karaköy, Galata, Şişli, Beşiktaş, Nişantaşı, Osmanbey, Maçka, Sarıyer, Etiler, Bebek, Arnavutköy, Emirgan, Yeniköy, Levent, Maslak.
+          p
+            span Districts where you can stay on the 
+            strong
+              span Asian side: Kadıköy, Üsküdar, Bostancı, Kuzguncuk, Kandilli, Çengelköy, Kanlıca, Beykoz, Kuleli, Harem.
+          .outer-links-with-arrow
+            a.outer-link(href='https://exploretraveloasis.com/the-coolest-neighbourhoods-in-istanbul/') The coolest neighbourhoods in Istanbul
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+          img.istanbul-map-accom(src='img\istanbul-map-accom.webp' alt='')
+        #history-culture-food
+          h1 History, Culture &amp; Food
+          p
+            span Istanbul does not only stand out because it is the only city established on two continents. As a corner where many civilizations and cultures intersect, it is a part of the common heritage of human history.
+          p
+            span It is thought that the first permanent settlement was made by the Greek colonists around the 7th century BC, under the name 
+            span.blue-highlight Byzantium.
+          p
+            span The Roman Emperor Constantine the Great named the city 
+            span.blue-highlight Constantinople
+            span  after he chose the city as the new capital of the Roman Empire, and the Medieval Ages began. When the Ottomans conquered the city in 1453, the Middle Ages closed, and the New Age began, and the name Constantinople continued to be used until the 1930s.
+          p
+            span With the establishment of the modern Turkish Republic, the name of the city becomes 
+            span.blue-highlight Istanbul.
+          .outer-links-with-arrow
+            a.outer-link(href='#') Recommended Restaurants to Try the Turkish Cuisine
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+          .outer-links-with-arrow
+            a.outer-link(href='#') Recommended Books, Films, and Documentaries to understand Istanbul
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+          .outer-links-with-arrow
+            a.outer-link(href='#') Tips about the City - an Instagram Account
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+        #tips-from-locals
+          h1 Tips from Locals
+          p
+            span.bold-colored Currency:
+            span  Turkish Lira
+          p
+            span.bold-colored Card:
+            span  You can use your credit card almost anywhere, but you may need to have cash for taxis.
+          p
+            span.bold-colored Best exchange:
+            span  Instead of currency exchange at airports, you can prefer exchange offices in the busiest parts of the city.
+          p
+            span.bold-colored E-SIM providers:
+            span  You can use Holafly or Airalo.
+          p
+            span.bold-colored SIM cards with best 4G coverage:
+            span  Turkcell, Türk Telekom and Vodafone are Turkey's largest service providers. You can get your SIM cards by visiting their offices in almost every corner by consulting Google maps. You can find it at a very affordable price. It may be a little more expensive at the airport.
+          p
+            span.bold-colored Tipping culture:
+            span  5-10% will please everyone.
+          p
+            span.bold-colored Tap Water:
+            span  It is not recommended to drink because of the chalky soils. Bottled water is available in every market or kiosk. Brands such as Erikli, Hamidiye, Damla are among the most preferred. As mineral water brands; Beypazarı and Kızılay stand out.
+          p
+            span.bold-colored Emergency number:
+            span  112
+          h2 Negotiating
+          p
+            span You can try to bargain as you wish in the souvenir shops in the Grand Bazaar, Spice Bazaar and other touristic areas. Chasing small discounts will entertain both Turks and you. However, do not forget that these people are masters of trade. Do not bargain in markets, restaurants, taxis and similar places.
+          h2 Taxi, Uber and Public Transportation
+          ul
+            li
+              span Attention! Some taxi drivers may ask you for more money, lengthen the short route, and force you to tip.
+            li
+              span It is very difficult to find a taxi in Istanbul these days. You can wait on the roads for minutes, hours to call a taxi. Public transport facilities are very good, if you are lucky, use public transport (especially metro).
+            li Prefer applications such as BiTaksi, Uber, TAG.
+            li You need to know that there is tension between the society and the taxi drivers.
+            li Make sure the taximeters are on and increase as you progress.
+            li
+              span They may ask for extra fees while using bridges, tunnels and highways, this is generally expected, but talk about it from the beginning.
+            li
+              span Make sure you get the taxi plate of the vehicle after a trip where you have any difficulties. You can create your complaint petition to the "White Desk", a unit of the Metropolitan Municipality, by calling 153 from the website, Android or Apple applications.
+          h2 CatIstanbul: Cats and Dogs of the City
+          p
+            span Did you know that more than a million stray cats live on the streets of Istanbul? Most of the stray cats videos you probably see on social media were recorded in Istanbul. The love of animals, which is an integral part of Turkish culture, is especially for cats and dogs and birds. Do not forget to visit the foundations that have been feeding the street animals of Istanbul for centuries. Don't forget to put a bowl of water and food in front of your hotel or AirBnb.
+          .outer-links-with-arrow
+            a.outer-link(href='#') "Kedi"; an awarded documentary about the city of cat, Istanbul, by Youtube
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+          h2 Do locals speak English?
+          p
+            span Yes, many of them speak English, although not very fluent. And no matter what, when you ask them a question, they try very hard to answer. You can ask any question you want.
+        #transportation
+          h1 Transportation
+          p
+            span Istanbul's public transport possibilities are varied and the departure times are arranged quite frequently. As a cheap and effective transportation option, you can keep your carbon footprint to a minimum by choosing public transportation. Public transport and highways are 
+            span.blue-highlight very busy
+            span  between 
+            span.blue-highlight 7.30-10.30 AM
+            span , which is the commute time, and between 
+            span.blue-highlight 4.30-7.30 PM
+            span , which is the return time from work. It is almost impossible to find a taxi in these hours when millions of people shuttle between Asia and Europe. We have not yet figured out what happened to the taxis between these hours :D
+          h2 Your Transport Options
+          p
+            span.bold-colored Metro: 
+            span "M" is the sign of metro Istanbul. By using the lines connecting various points of the city, you can reach your desired destination in the fastest and most comfortable way. It is a safe and clean means of transportation. Did you know that the world's first metro project and second metro is in Istanbul (Taksim Tunel)?
+          p
+            span.bold-colored Metrobus: 
+            span It is a special bus line that connects the European side of the city and the Anatolian side using the D-100 highway using the Bosphorus Bridge. As one of the most used means of transportation by Istanbulites, it is very busy, especially during the hours I mentioned above.
+          p
+            span.bold-colored Tram: 
+            span You can explore the city with Tram lines connecting the most historical areas.
+          p
+            span.bold-colored Bus: 
+            span As one of the most sophisticated public transport operations, it is the most used form of public transport by the public. There are more than 8000 stops and close to 1000 lines. Fun Fact: A bus line named 500T takes five hours, and the driver changes four times on a bus trip. The line connects the westernmost part of Istanbul with the easternmost.
+          p
+            span.bold-colored Ferry (Vapur): 
+            span It is by far the most characteristic and first public transportation vehicle of Istanbul. Click here for a list of ferry lines connecting East and West, Asia and Europe, Islands and the Mainland. Use the ferries to cross the street, buy bagels and tea. Throw your bagels to the seagulls who will accompany you along the way.
+          p
+            span.bold-colored Dolmus (Shared Taxis): 
+            span You can make your short-distance journeys with these minibuses using cash.
+          p
+            span.bold-colored Marmaray: 
+            span You can use this tube crossing, which connects Europe to Asia with a railway under the Bosphorus, by Metro. Unfortunately, you can't watch the fish during the pass :D.
+          p
+            span To use all these public transport lines, you need a public transport card called Istanbulkart. You can get this card from kiosks, metro stations, piers and some bus stops all over the city. They are so cheap, even converting them into dollars is unnecessary.
+          p
+            span.bold-colored Uber: 
+            span Provides service with approved yellow taxi drivers. There are no personal drivers.
+          h2 Transportation Applications
+          p
+            span.bold-colored Istanbulkart: 
+            span It is the official transportation application. You may need a Turkish phone line for use. You can obtain your E-SIM or SIM cards. You can get Istanbulkart physically from kiosks all over the city, from metro stations, piers and some bus stops.
+          p
+            span.bold-colored BiTaksi: 
+            span Taxi-Uberish app, as a local app its better for you to use this to call a taxi.
+          p
+            span.bold-colored MartiTAG: 
+            span A new kind of a local UBER, you can give it a try as well.
+          p
+            span.bold-colored Marti, binbin, and Fenix: 
+            span These are shared scooter apps that you can use in the city.
+          p
+            span.bold-colored isbike: 
+            span They are the bicycles of the municipality. Istanbul is a very hilly city. You can use the bikes on the Bosphorus line and on the beaches.
+          p
+            span.bold-colored Moovit: 
+            span It is a public transit information application, works like Google Maps.
+          p
+            span.bold-colored Google Maps: 
+            span Yes, I personally use Google Maps, but it can be confusing sometimes, especially on bus services.
+          h2 Transportation from Airports to the City Center
+          p
+            span We recommend using public transport to reach the city center or other districts from the city's airports. If you have to use a taxi, use applications such as BiTaksi, Uber, MartiTAG. Apart from that, the taxis you hire may ask you for more money than it should be.
+          h2 Public transport lines you can use
+          p
+            span.bold-colored Havabus: 
+            span These are the official bus lines operating between Sabiha Gökçen Airport (SAW) and Taksim, Kadıköy and Yenisahra districts.
+          p
+            span.bold-colored Havaist: 
+            span These are the official bus lines connecting various points of the city with the main airport of the city, Istanbul Airport (IST).
+          p
+            span.bold-colored IETT: 
+            span IETT is the official institution that operates the city's buses and trams, you can use its buses.
+          p
+            span.bold-colored Metro: 
+            span You can reach Istanbul Sabiha Gökçen Airport (SAW) with the M4 line, and Istanbul Airport (IST) with the M11 line.
+          h2 More information
+          .outer-links-with-arrow
+            a.outer-link(href='#') Istanbul Tourist Information - Public Transportation
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+          .outer-links-with-arrow
+            a.outer-link(href='#') Chasing The Donkey - Public Transportation
+            svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
+        #safety
+          h1 Safety
+          p
+            span It is a safe city in general. However, it should not be forgotten that Istanbul is a very large and global city with a population of over twenty million. Therefore, pay attention to our recommendations.
+          p
+            span.bold-colored Keep an eye on your belongings 
+            span in tourist areas when public transport is at its busiest.
+          p
+            span.bold-colored Use applications such as BiTaksi, Uber 
+            span if you are going to travel by taxi, prefer to travel with the vehicles you will call from these applications.
+          h2 Use Public Transport
+          p
+            span.bold-colored Respect the dress code in places of religious importance: 
+            span Dress appropriately for mosques and places of worship such as the Blue Mosque, Hagia Sophia, Topkap&imath; Palace Museum of Sacred Relics. Female visitors will be asked to cover their heads lightly.
+          p
+            span.bold-colored Earthquake risk: 
+            span Istanbul expects an earthquake that could cause significant damage in the upcoming time period. You may want to learn about the earthquake resistance of the building you will be staying in.
