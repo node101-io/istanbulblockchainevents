@@ -407,7 +407,7 @@
 }
 
 .add-to-calendar-button {
-  display: flex;
+  display: flex; 
   width: 150px;
   height: 40px;
   padding: 16px 40px;
