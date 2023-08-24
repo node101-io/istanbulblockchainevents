@@ -1,19 +1,4 @@
 :root {
-  --header-background-color: rgba(0, 0, 0, 0.4);
-  --default-text-color: rgba(217, 217, 217, 1);
-  --website-background-color: rgba(20, 20, 20, 1);
-  --top-intro-paragraph-color: rgba(238, 246, 252, 1);
-  --top-intro-title-color: rgba(255, 255, 255, 1);;
-  --gradient-title-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(104, 242, 158, 1) 100%);
-  --gradient-text-color: linear-gradient(47deg, rgba(255, 120, 37, 1) 10.98%, rgba(104, 242, 158, 1) 100%, rgba(91, 124, 255, 1) 100%);
-  --main-events-color: rgba(104, 242, 158, 1);
-  --side-events-color: rgba(91, 124, 255, 1);
-  --party-color: rgba(255, 120, 37, 1);
-  --inactive-scroll-button-color: rgba(192, 161, 144, 1);
-  --event-bar-bg-color: rgba(33, 33, 33, 1); 
-  --footer-email-button-text-color: rgba(121,122,122,1);
-  --footer-divider-color: rgba(42,42,42,1);
-
   --node101-logo-width: 93px;
   --node101-logo-height: 38px;
   --node101-logo-position-bottom: -20px;
@@ -461,17 +446,17 @@
 
 @media only screen and (min-width: 1900px) {
   :root {
-      --header-padding: calc((100vw - 1900px) / 2 + 201px);
+      --header-padding: calc((100vw - 1900px) / 2 + 150px);
   }
 }
 @media only screen and (max-width: 1700px) {
   :root {
-      --header-padding: calc((100vw - 1700px) / 2 + 201px);
+      --header-padding: calc((100vw - 1700px) / 2 + 150px);
   }
 }
 @media only screen and (max-width: 1500px) {
   :root {
-      --header-padding: calc((100vw - 1500px) / 2 + 201px);
+      --header-padding: calc((100vw - 1500px) / 2 + 150px);
   }
 
   .top-intro {
@@ -489,7 +474,7 @@
 }
 @media only screen and (max-width: 1200px) {
   :root {
-      --header-padding: calc((100vw - 1200px) / 2 + 201px);
+      --header-padding: calc((100vw - 1200px) / 2 + 150px);
   }
   .sidebar{
       display: none;
@@ -530,7 +515,7 @@
 }
 @media only screen and (max-width: 1000px) {
   :root {
-      --header-padding: calc((100vw - 1000px) / 2 + 201px);
+      --header-padding: calc((100vw - 1000px) / 2 + 150px);
   }
   .event-title {
       font-size: 18px;

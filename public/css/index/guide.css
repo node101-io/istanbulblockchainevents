@@ -14,19 +14,6 @@
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
 
-  --ist-blockchain-events-logo-footer-width: 678px;
-  --footer-title-width: 1160px;
-  --footer-title-height: 200px;
-  --footer-email-button-width: 458px;
-  --footer-email-button-height: 55px;
-  --footer-email-button-border-radius: 107px;
-
-  --footer-subscribe-button-width: 146px;
-  --footer-subscribe-button-height: 40px;
-  --footer-subscribe-button-margin-top: 20px;
-
-  --footer-plain-text-fontsize: 16px;
-
 }
 
 .istanbul-guide-top-section {
@@ -42,7 +29,7 @@
 
 .istanbul-guide-top-section-left {
   width: 50%;
-  font-size: 83px;
+  font-size: 60px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -87,20 +74,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 78px;
+  gap: 40px;
   padding: var(--top-intro-padding);
 }
 
 .side-bar-divider {
   width: 1px;
-  height: 785px;
+  height: 500px;
   background: #777;
 }
 
 .side-bar-element {
   width: 100%;
   height: 32px;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
   color: #EEF6FC;
   text-decoration: none;
@@ -121,15 +108,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px;
+  gap: 35px;
+  margin-bottom: 40px;
 }
 
 .istanbul-guide-main-content h1 {
   width: fit-content;
   height: fit-content;
   color: #EEF6FC;
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 400;
 }
 
@@ -137,21 +124,21 @@ h2 {
   width: fit-content;
   height: fit-content;
   color: #EEF6FC;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 .istanbul-guide-main-content p {
   width: fit-content;
   color: #EEF6FC;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 37px;
 }
 
 h3 {
   color: #D9D9D9;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   margin-bottom: 50px;
 }
@@ -187,14 +174,14 @@ h3 {
 
 .quick-tip-bar-left {
   color: #5B7CFF;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
 
 .quick-tip-bar-right {
   color: #D9D9D9;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -202,8 +189,8 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px; 
+  gap: 35px;
+  margin-bottom: 40px; 
 }
 
 #getting-to-istanbul h3 {
@@ -233,13 +220,13 @@ h3 {
 
 .airport-icao-code {
   color: #EEF6FC;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
 .airport-full-name {
   color: #EEF6FC;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
 }
 
@@ -247,7 +234,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 18px;
 }
 
 .airport-detail {
@@ -284,8 +271,8 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px; 
+  gap: 35px;
+  margin-bottom: 40px; 
 }
 
 .outer-links-with-arrow {
@@ -303,7 +290,7 @@ h3 {
   width: fit-content;
   height: auto;
   color: #5B7CFF;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
   flex-wrap: wrap;
 }
@@ -324,7 +311,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
+  gap: 35px;
   margin-bottom: 60px; 
 }
 
@@ -341,42 +328,43 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px; 
+  gap: 25px;
+  margin-bottom: 40px; 
 }
 
 .bold-colored {
   color: #5B7CFF;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 li {
   color: #EEF6FC;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 37px;
   margin-left: 30px;
 }
 
 #tips-from-locals .outer-links-with-arrow {
-  margin-bottom: -20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 #transportation {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px; 
+  gap: 35px;
+  margin-bottom: 40px; 
 }
 
 #safety {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
-  margin-bottom: 60px; 
+  gap: 35px;
+  margin-bottom: 40px; 
 }
 
 @media only screen and (max-width: 1400px) {
@@ -421,10 +409,6 @@ li {
 
 @media only screen and (max-width: 1100px) {
 
-  :root {
-      --header-padding: 40px;
-  }
-
   .istanbul-guide-side-bar {
       display: none;
   }
@@ -442,10 +426,6 @@ li {
 }
 
 @media only screen and (max-width: 600px) {
-
-  :root {
-      --header-padding: 40px;
-  }
 
   .istanbul-guide-side-bar {
       display: none;
