@@ -235,6 +235,11 @@
       --header-padding: calc((100vw - 1500px) / 2 + 150px);
   }
 }
+@media only screen and (max-width: 1300px) {
+  :root {
+      --header-padding: calc((100vw - 1300px) / 2 + 150px);
+  }
+}
 @media only screen and (max-width: 1200px) {
   :root {
       --header-padding: calc((100vw - 1200px) / 2 + 150px);
