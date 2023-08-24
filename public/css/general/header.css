@@ -91,6 +91,7 @@
 
 .footer-title {
   width: 70%;
+  min-width: 70%;
   text-align: center;
   font-size: 48px;
   font-style: normal;
@@ -239,24 +240,19 @@
   :root {
       --header-padding: calc((100vw - 1300px) / 2 + 150px);
   }
+  .footer-title {
+    width: 90%;
+  }
 }
 @media only screen and (max-width: 1200px) {
   :root {
       --header-padding: calc((100vw - 1200px) / 2 + 150px);
   }
-  .sidebar{
-      display: none;
-  }
-  .ist-blockchain-events-logo-footer {
-      width: calc(var(--ist-blockchain-events-logo-footer-width)/2);
-      min-width: calc(var(--ist-blockchain-events-logo-footer-width)/2);
-      margin: 0;
-  }
+
   .footer-title {
-      width: calc(var(--footer-title-width)/2);
-      min-width: calc(var(--footer-title-width)/2);
-      margin-top: 0;
+    width: 90%;
   }
+  
   .footer-social-media-logos {
       display: none;
   }
@@ -279,7 +275,7 @@
 }
 @media only screen and (max-width: 1000px) {
   :root {
-      --header-padding: calc((100vw - 1000px) / 2 + 201px);
+      --header-padding: calc((100vw - 1000px) / 2 + 150px);
   }
   .footer-page-link {
       font-size: 18px;
@@ -289,6 +285,20 @@
   }
 
 }
+
+@media only screen and (max-width: 760px) {
+  :root {
+      --header-padding: 30px;
+  }
+  .header-nav {
+      display: none;
+  }
+  .all-header {
+      justify-content: center;
+  }
+
+}
+
 @media only screen and (max-width: 670px) {
   :root {
       --header-padding: 18px;
@@ -305,24 +315,24 @@
 @media only screen and (max-width: 630px) {
 
   .footer-bottom-information {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 30px 0;
   }
 
   .footer-bottom-links {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      gap: 24px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 24px;
   }
 
   .footer-page-link {
-      font-size: 24px;
+    font-size: 24px;
   }
 }
 
@@ -330,24 +340,21 @@
   :root {
       --header-padding: 30px;
   }
-  .ist-blockchain-events-logo-footer {
-      width: 250px;
-      min-width: 250px;
-  }
+
   .footer-title {
-      width: 450px;
-      min-width: 450px;
+    width: 350px;
+    min-width: 350px;
+    text-align: left;
+    font-size: 30px;
+    line-height: 30.5px;
+    margin-top: 50px;
   }
+  
 }
 
 @media only screen and (max-width: 480px) {
   :root {
-      --header-padding: 10px;
-  }
-
-  .footer-title {
-      width: 350px;
-      min-width: 350px;
+      --header-padding: 30px;
   }
 
   .footer-copyright-information {
@@ -375,12 +382,14 @@
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
   :root {
       --header-padding: 10px;
   }
 
-  .top-intro {
-      display: none;
+  .ist-blockchain-events-logo-footer {
+    width: 320px;
+    min-width: 320px;
   }
+
 }
