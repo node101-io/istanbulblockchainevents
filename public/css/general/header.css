@@ -24,6 +24,7 @@
   height: var(--header-height);
   flex-shrink: 0;
   padding: 0 var(--header-padding);
+  backdrop-filter: blur(5px);
 }
 
 .all-content {
@@ -68,16 +69,16 @@
 }
 
 .header-hamburger-menu-icon {
-  width: 29px;
-  height: 26px;
+  width: 23px;
+  height: 20px;
   flex-shrink: 0;
   display: none;
   padding-right: 20px;
 }
 
 .header-blockchain-events-logo-icon {
-  width: 154px;
-  height: 100px;
+  width: 100px;
+  height: 64px;
   display: none;
   padding-left: 10px;
 }

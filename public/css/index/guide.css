@@ -76,10 +76,12 @@
   align-items: flex-start;
   gap: 40px;
   padding: var(--top-intro-padding);
+  margin-right: 30px;
 }
 
 .side-bar-divider {
   width: 1px;
+  min-width: 1px;
   height: 500px;
   background: #777;
 }
@@ -285,9 +287,9 @@ h3 {
 .get-directions-button {
   display: flex;
   width: 166px;
+  min-width: 166px;
   height: 40px;
-  padding: 16px 40px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-radius: 10px;
   border: 1px solid #5B7CFF;
@@ -428,13 +430,6 @@ li {
       gap: 30px;
   }
 
-  .side-bar-divider {
-      width: 1px;
-      height: 400px;
-      background: #777;
-  }
-  
-  
 }
 
 @media only screen and (max-width: 1000px) {
