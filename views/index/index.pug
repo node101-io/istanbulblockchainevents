@@ -2,6 +2,26 @@ extends ../partials/header
 block main
   .all-content
     .top-intro
+      .top-slider-mobile
+        svg.top-slider-mobile-event-image(viewbox='0 0 747 500' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                  rect(width='747' height='500' rx='30' fill='url(#pattern0)')
+                  rect(width='747' height='500' rx='30' fill='url(#paint0_linear_33_32)' fill-opacity='0.2')
+                  defs
+                    pattern#pattern0(patterncontentunits='objectBoundingBox' width='1' height='1')
+                      use(xlink:href='#image0_33_32' transform='matrix(0.000370608 0 0 0.000906205 -0.123956 -0.272464)')
+                    lineargradient#paint0_linear_33_32(x1='0' y1='0' x2='181.4' y2='504.407' gradientunits='userSpaceOnUse')
+                      stop(stop-color='#4080FA')
+                      stop(offset='0.208333' stop-color='#3F49F9')
+                      stop(offset='0.34375' stop-color='#3E21F9')
+                      stop(offset='0.4375' stop-color='#3D09F9')
+                      stop(offset='0.614583' stop-color='#3D00F9')
+                      stop(offset='0.6875' stop-color='#4607F8')
+                      stop(offset='0.84375' stop-color='#5E19F4')
+                      stop(offset='1' stop-color='#8636ED')
+        p.event-name ETH Istanbul Devconnect
+        .box-bottom-info
+          p.event-info March 16th, 2023
+          p.event-info Conference
       .top-intro-left
         h1
           div
@@ -31,6 +51,15 @@ block main
           .pages-scroll-buttons-inactive
           .pages-scroll-buttons-inactive
     .bottom-content
+      .mobile-search-filter-section
+        .mobile-search-bar
+          .mobile-search-bar-content
+            p Search
+            svg.search-icon(viewbox='0 0 24 25' xmlns='http://www.w3.org/2000/svg')
+              path(d='M21.75 21.1895L16.0859 15.5254C17.447 13.8914 18.1257 11.7956 17.9808 9.67399C17.836 7.55236 16.8788 5.56824 15.3083 4.13438C13.7378 2.70053 11.675 1.92733 9.549 1.97565C7.42298 2.02396 5.39742 2.89006 3.89371 4.39377C2.39 5.89748 1.5239 7.92304 1.47558 10.0491C1.42727 12.1751 2.20047 14.2379 3.63432 15.8084C5.06818 17.3788 7.0523 18.336 9.17393 18.4809C11.2956 18.6257 13.3914 17.947 15.0253 16.586L20.6894 22.2501L21.75 21.1895ZM2.99999 10.2501C2.99999 8.91503 3.39588 7.60999 4.13757 6.49996C4.87927 5.38992 5.93348 4.52476 7.16688 4.01387C8.40028 3.50298 9.75748 3.3693 11.0669 3.62975C12.3762 3.8902 13.579 4.53308 14.523 5.47708C15.467 6.42109 16.1098 7.62382 16.3703 8.9332C16.6307 10.2426 16.4971 11.5998 15.9862 12.8332C15.4753 14.0666 14.6101 15.1208 13.5001 15.8625C12.3901 16.6042 11.085 17.0001 9.74999 17.0001C7.96039 16.9981 6.24466 16.2863 4.97922 15.0208C3.71378 13.7554 3.00198 12.0397 2.99999 10.2501Z' fill='#EEF6FC')
+        .mobile-filter-box
+          svg(width='21' height='20' viewbox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M12.1667 20H8.83333C8.39131 20 7.96738 19.8244 7.65482 19.5118C7.34226 19.1993 7.16667 18.7754 7.16667 18.3333V12.0083L0.991667 5.83333C0.678677 5.52221 0.501861 5.09965 0.5 4.65833V1.66667C0.5 1.22464 0.675595 0.800716 0.988155 0.488155C1.30072 0.175595 1.72464 0 2.16667 0H18.8333C19.2754 0 19.6993 0.175595 20.0118 0.488155C20.3244 0.800716 20.5 1.22464 20.5 1.66667V4.65833C20.4981 5.09965 20.3213 5.52221 20.0083 5.83333L13.8333 12.0083V18.3333C13.8333 18.7754 13.6577 19.1993 13.3452 19.5118C13.0326 19.8244 12.6087 20 12.1667 20ZM2.16667 1.66667V4.65833L8.83333 11.325V18.3333H12.1667V11.325L18.8333 4.65833V1.66667H2.16667Z' fill='#EEF6FC')
       .sidebar
         .bar
           .bar-content
