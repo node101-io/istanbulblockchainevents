@@ -528,7 +528,7 @@
   display: none;
   width: 100%;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 32px;
 }
 
@@ -729,5 +729,9 @@
     color: #EEF6FC;
     font-size: 14px;
     font-weight: 400;
+  }
+
+  .mobile-search-filter-section {
+    justify-content: center;
   }
 }
