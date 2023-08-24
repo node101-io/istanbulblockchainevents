@@ -52,7 +52,6 @@
   width: 189px;
   height: 52px;
   flex-shrink: 0;
-  margin-right: auto;
 }
 
 .header-nav {
@@ -63,25 +62,24 @@
   gap: 46px;
 }
 
-.header-nav a { 
+.header-page-name { 
   color: var(--default-text-color);
   text-decoration: none;
-}
-
-.header-page-name:nth-child(3) {
-  display: none;
 }
 
 .header-hamburger-menu-icon {
   width: 29px;
   height: 26px;
+  flex-shrink: 0;
   display: none;
+  padding-right: 20px;
 }
 
 .header-blockchain-events-logo-icon {
   width: 154px;
   height: 100px;
   display: none;
+  padding-left: 10px;
 }
 
 .ist-blockchain-events-logo-footer {
@@ -290,24 +288,31 @@
   :root {
       --header-padding: 30px;
   }
-  .header-nav {
-      display: none;
+
+  .header-page-name {
+    display: none;
   }
-  .all-header {
-      justify-content: center;
+  
+  .header-hamburger-menu-icon {
+    width: fit-content;
+    display: flex;
   }
+  
+  .header-blockchain-events-logo-icon {
+    width: fit-content;
+    display: flex;
+  }
+
+  .header-blockchain-events-logo-text {
+    display: none;
+  }
+
 
 }
 
 @media only screen and (max-width: 670px) {
   :root {
       --header-padding: 18px;
-  }
-  .header-nav {
-      display: none;
-  }
-  .all-header {
-      justify-content: center;
   }
 
 }
