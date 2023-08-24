@@ -19,14 +19,13 @@
   --node101-logo-position-bottom: -20px;
   --node101-logo-position-right: 0px;
 
-  --event-name-title-fontsize: 22px;
   --event-type-date-fontsize: 18px;
 
-  --scroll-button-width: 10px;
-  --scroll-button-height: 10px;
+  --scroll-button-width: 8px;
+  --scroll-button-height: 8px;
 
   --bar-border-radius: 10px;
-  --bar-width: 262px;
+  --bar-width: 200px;
   --bar-padding: 10px 20px;
   --submit-button-padding: 16px 40px;
 
@@ -38,7 +37,7 @@
   height: fit-content;
   max-height: fit-content;
   display: inline-flex;
-  padding: 50px var(--header-padding);
+  padding: 50px var(--header-padding) 20px var(--header-padding);
   align-items: flex-start;
   gap: 5%;
 }
@@ -53,17 +52,17 @@
 
 .top-intro-left h1  {
   color: var(--top-intro-title-color);
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 400;
-  line-height: 65px;
   letter-spacing: 1%;
   width: 100%;
   min-width: 100%;
 }
 
 .istanbul-blockchain-events-logo {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 
 .top-intro-left p {
@@ -71,7 +70,7 @@
   min-width: 100%;
   color: var(--top-intro-paragraph-color);
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 37.5px;
 }
 
@@ -109,7 +108,7 @@
 
 .top-intro-right .event-name {
   color: var(--side-events-color);
-  font-size: var(--event-name-title-fontsize);
+  font-size: 18px;
   font-weight: 400;
   width: 100%;
   min-width: 100%;
@@ -119,7 +118,7 @@
 
 .top-intro-right .event-info {
   color: var(--default-text-color);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
 }
 
@@ -162,12 +161,12 @@
   display: inline-flex;
   padding: 50px var(--header-padding);
   align-items: flex-start;
-  gap: 125px;
+  gap: 30px;
 }
 
 .sidebar {
   width: 20%;
-  min-width: 262px;
+  min-width: 200px;
   height: auto;
   min-height: auto;
   display: flex;
@@ -180,7 +179,7 @@
 .bar {
   display: flex;
   width: var(--bar-width);
-  height: 67px;
+  height: 55px;
   padding: var(--bar-padding);
   flex-direction: column;
   justify-content: center;
@@ -189,13 +188,13 @@
   border-radius: var(--bar-border-radius);
   background: var(--event-bar-bg-color);
   color: var(--default-text-color);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 .bar-content {
   display: flex;
-  width: 226px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -203,8 +202,7 @@
 .bar-extension-date-selection {
   display: flex;
   width: var(--bar-width);
-  height: 410px;
-  padding: var(--bar-padding);
+  height: 350px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -212,14 +210,14 @@
   border-radius: var(--bar-border-radius);
   background: var(--event-bar-bg-color);
   color: var(--default-text-color);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 .date-selection-background {
   display: flex;
-  width: 207px;
-  height: 390px;
+  width: var(--bar-width);
+  height: 330px;
   padding: 23px;
   flex-direction: column;
   align-items: flex-start;
@@ -232,7 +230,7 @@
 .bar-extension-type-selection {
   display: flex;
   width: var(--bar-width);
-  height: 430px;
+  height: 350px;
   padding: var(--bar-padding);
   flex-direction: column;
   justify-content: center;
@@ -241,30 +239,35 @@
   border-radius: var(--bar-border-radius);
   background: var(--event-bar-bg-color);
   color: var(--default-text-color);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 .type-selection-wrapper {
   display: flex;
-  width: 207px;
-  height: 392px;
-  padding: 10px 23px;
+  width: var(--bar-width);
+  height: 360px;
+  padding-top: 23px;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 6px;
   flex-shrink: 0;
   border-radius: 30px;
 }
 
+.type-selection-wrapper .main-events, .type-selection-wrapper .side-events, .type-selection-wrapper .party {
+  margin-left: 4px;
+}
+
 .search-icon {
-  width: 24px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
 }
 
 .list-tray-icon {
-  width: 16px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
 }
 
 .submit-button {
@@ -277,9 +280,9 @@
   border-radius: var(--bar-border-radius);
   background: var(--main-events-color);
   color: var(--body-background-color);
-  font-size: var(--bar-fontsize);
+  font-size: 16px;
   font-weight: 400;
-  margin-top: 48px;
+  margin-top: 20px;
 }
 
 .main-content {
@@ -298,8 +301,8 @@
   display: flex;
   width: 100%; 
   min-width: 100%;
-  height: 98px;
-  min-height: 98px;
+  height: 85px;
+  min-height: 85px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -319,7 +322,7 @@
 }
 
 .event-title {
-  font-size: var(--event-name-title-fontsize);
+  font-size: 18px;
   font-weight: 400;
   min-width: 350px;
   margin-right: 5px;
@@ -339,7 +342,7 @@
 
 .event-type, .event-date {
   color: var(--default-text-color);
-  font-size: var(--event-type-date-fontsize);
+  font-size: 14px;
   font-weight: 400;
   min-width: 150px;
   display: flex;

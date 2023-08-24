@@ -200,22 +200,22 @@
 
 @media only screen and (min-width: 1900px) {
   :root {
-      --header-padding: calc((100vw - 1900px) / 2 + 201px);
+      --header-padding: calc((100vw - 1900px) / 2 + 150px);
   }
 }
 @media only screen and (max-width: 1700px) {
   :root {
-      --header-padding: calc((100vw - 1700px) / 2 + 201px);
+      --header-padding: calc((100vw - 1700px) / 2 + 150px);
   }
 }
 @media only screen and (max-width: 1500px) {
   :root {
-      --header-padding: calc((100vw - 1500px) / 2 + 201px);
+      --header-padding: calc((100vw - 1500px) / 2 + 150px);
   }
 }
 @media only screen and (max-width: 1200px) {
   :root {
-      --header-padding: calc((100vw - 1200px) / 2 + 201px);
+      --header-padding: calc((100vw - 1200px) / 2 + 150px);
   }
   .sidebar{
       display: none;
