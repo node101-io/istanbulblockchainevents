@@ -486,7 +486,7 @@
 }
 
 .top-slider-section-mobile {
-  display: inline-flex;
+  display: none;
   width: 100%;
   align-items: flex-start;
   gap: 8px;
@@ -495,7 +495,7 @@
 }
 
 .top-slider-element-mobile {
-  display: none;
+  display: flex;
   width: 261px;
   padding: 16px 8px;
   flex-direction: column;
@@ -719,10 +719,10 @@
 
   .top-intro-right {
     display: none;
-}
+  }
 
-  .top-slider-element-mobile {
-    display: flex;
+  .top-slider-section-mobile {
+    display: inline-flex;
   }
 
   .about-the-event-mobile-version p {
