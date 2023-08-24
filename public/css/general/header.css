@@ -68,33 +68,55 @@
   text-decoration: none;
 }
 
+.header-page-name:nth-child(3) {
+  display: none;
+}
+
+.header-hamburger-menu-icon {
+  width: 29px;
+  height: 26px;
+  display: none;
+}
+
+.header-blockchain-events-logo-icon {
+  width: 154px;
+  height: 100px;
+  display: none;
+}
+
 .ist-blockchain-events-logo-footer {
-  width: var(--ist-blockchain-events-logo-footer-width);
-  min-width: var(--ist-blockchain-events-logo-footer-width);
+  width: 450px;
+  min-width: 450px;
 }
 
 .footer-title {
-  width: var(--footer-title-width);
-  min-width: var(--footer-title-width);
-  height: var(--footer-title-height);
-  min-width: var(--footer-title-height);
+  width: 70%;
+  text-align: center;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60.5px;
+  background: linear-gradient(313deg, #FF7825 10.98%, #68F29E 42.12%, #5B7CFF 94.15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-top: 50px;
 }
 
 .footer-email-button {
   display: flex;
-  width: var(--footer-email-button-width);
-  height: var(--footer-email-button-height);
+  width: 400px;
+  height: 50px;
   flex-shrink: 0;
   border-radius: var(--footer-email-button-border-radius);
   background: rgba(0, 0, 0, 0.60);
   align-items: center;
-  margin-top: 5%;
+  margin-top: 30px;
 }
 
 .footer-email-button-text {
   color: var(--footer-email-button-text-color);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   margin-left: 30px;
 }
@@ -126,7 +148,7 @@
 
 .footer-contact-mail {
   color: var(--footer-email-button-text-color);
-  font-size: var(--footer-plain-text-fontsize);
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   margin-top: var(--header-height);
@@ -164,7 +186,7 @@
 .footer-page-link {
   color: var(--top-intro-paragraph-color);
   text-align: center;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 400;
   text-decoration: none;
   margin-right: 25px;
@@ -194,7 +216,7 @@
 .footer-design-develop, .footer-all-rights-reserved {
   white-space: nowrap;
   color: var(--default-text-color);
-  font-size: var(--footer-plain-text-fontsize);
+  font-size: 12px;
   font-weight: 400;
 }
 
