@@ -6,22 +6,7 @@ block main
         p Hoşgeldin!
         p Istanbul Guide
       .istanbul-guide-top-section-right
-        svg.istanbul-guide-intro-photo(viewbox='0 0 747 301' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
-          rect(width='747' height='301' rx='30' fill='url(#pattern0)')
-          rect(width='747' height='301' rx='30' fill='url(#paint0_linear_33_32)' fill-opacity='0.2')
-          defs
-            pattern#pattern0(patterncontentunits='objectBoundingBox' width='1' height='1')
-              use(xlink:href='#image0_33_32' transform='matrix(0.000370608 0 0 0.000906205 -0.123956 -0.272464)')
-            lineargradient#paint0_linear_33_32(x1='0' y1='0' x2='181.4' y2='504.407' gradientunits='userSpaceOnUse')
-              stop(stop-color='#4080FA')
-              stop(offset='0.208333' stop-color='#3F49F9')
-              stop(offset='0.34375' stop-color='#3E21F9')
-              stop(offset='0.4375' stop-color='#3D09F9')
-              stop(offset='0.614583' stop-color='#3D00F9')
-              stop(offset='0.6875' stop-color='#4607F8')
-              stop(offset='0.84375' stop-color='#5E19F4')
-              stop(offset='1' stop-color='#8636ED')
-        //- image !!!!!! 
+        img.istanbul-guide-intro-photo(src=`${URL}/img/istanbul-guide-top-photo.webp` alt="")
     .istanbul-guide-bottom-section
       .istanbul-guide-mobile-side-bar
         .istanbul-guide-mobile-side-bar-links
@@ -123,7 +108,7 @@ block main
             a.outer-link(href='https://exploretraveloasis.com/the-coolest-neighbourhoods-in-istanbul/') The coolest neighbourhoods in Istanbul
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
-          img.istanbul-map-accom(src='img\istanbul-map-accom.webp' alt='')
+          img.istanbul-map-accom(src=`${URL}/img/istanbul-map-accom.webp` alt='')
         #history-culture-food
           h1 History, Culture &amp; Food
           p

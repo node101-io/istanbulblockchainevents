@@ -2,26 +2,13 @@ extends ../partials/header
 block main
   .all-content
     .top-intro
-      .top-slider-mobile
-        svg.top-slider-mobile-event-image(viewbox='0 0 747 500' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
-                  rect(width='747' height='500' rx='30' fill='url(#pattern0)')
-                  rect(width='747' height='500' rx='30' fill='url(#paint0_linear_33_32)' fill-opacity='0.2')
-                  defs
-                    pattern#pattern0(patterncontentunits='objectBoundingBox' width='1' height='1')
-                      use(xlink:href='#image0_33_32' transform='matrix(0.000370608 0 0 0.000906205 -0.123956 -0.272464)')
-                    lineargradient#paint0_linear_33_32(x1='0' y1='0' x2='181.4' y2='504.407' gradientunits='userSpaceOnUse')
-                      stop(stop-color='#4080FA')
-                      stop(offset='0.208333' stop-color='#3F49F9')
-                      stop(offset='0.34375' stop-color='#3E21F9')
-                      stop(offset='0.4375' stop-color='#3D09F9')
-                      stop(offset='0.614583' stop-color='#3D00F9')
-                      stop(offset='0.6875' stop-color='#4607F8')
-                      stop(offset='0.84375' stop-color='#5E19F4')
-                      stop(offset='1' stop-color='#8636ED')
-        p.event-name ETH Istanbul Devconnect
-        .box-bottom-info
-          p.event-info March 16th, 2023
-          p.event-info Conference
+      .top-slider-section-mobile
+        .top-slider-element-mobile
+          img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
+          p.event-name ETH Istanbul Devconnect
+          .box-bottom-info
+            p.event-info March 16th, 2023
+            p.event-info Conference
       .top-intro-left
         h1
           div
@@ -203,7 +190,7 @@ block main
             .event-date Oct 3
             .event-type Party
           .about-the-event-mobile-version
-                img.about-the-event-image(src='img/about-event-img.webp' alt='')
+                img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
                 p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
                 .about-the-event-buttons
                   .link-to-event-button
