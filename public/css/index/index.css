@@ -487,9 +487,11 @@
 
 .top-slider-section-mobile {
   display: inline-flex;
+  width: 100%;
   align-items: flex-start;
   gap: 8px;
-
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 .top-slider-element-mobile {
