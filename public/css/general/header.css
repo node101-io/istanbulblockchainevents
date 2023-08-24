@@ -273,7 +273,7 @@
 }
 @media only screen and (max-width: 1000px) {
   :root {
-      --header-padding: calc((100vw - 1000px) / 2 + 150px);
+      --header-padding: 50px;
   }
   .footer-page-link {
       font-size: 18px;
