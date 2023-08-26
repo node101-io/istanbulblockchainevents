@@ -248,29 +248,6 @@
       --header-padding: calc((100vw - 1200px) / 2 + 150px);
   }
 
-  .footer-title {
-    width: 90%;
-  }
-  
-  .footer-social-media-logos {
-      display: none;
-  }
-
-  .footer-bottom-information {
-      justify-content: space-around;
-  }
-
-  .footer-page-link {
-      font-size: 25px;
-  }
-
-  .footer-bottom-links a:last-child{
-      margin-right: 0;
-  }
-  .footer-design-develop, .footer-all-rights-reserved {
-      font-size: 12px;
-  }
-
 }
 @media only screen and (max-width: 1000px) {
   :root {
@@ -311,15 +288,21 @@
 
 }
 
-@media only screen and (max-width: 670px) {
-  :root {
-      --header-padding: 18px;
+@media only screen and (max-width: 700px) {
+  .footer-social-media-logos {
+    display: none;
   }
 
-}
+  .footer-page-link {
+      font-size: 25px;
+  }
 
-@media only screen and (max-width: 630px) {
-
+  .footer-bottom-links a:last-child{
+      margin-right: 0;
+  }
+  .footer-design-develop, .footer-all-rights-reserved {
+      font-size: 12px;
+  }
   .footer-bottom-information {
     display: flex;
     flex-direction: column;
@@ -327,6 +310,9 @@
     align-items: flex-start;
     gap: 24px;
     padding: 30px 0;
+    order: 1;
+    margin-top: 76px;
+    margin-bottom: 60px;
   }
 
   .footer-bottom-links {
@@ -337,12 +323,71 @@
     gap: 24px;
   }
 
+  .footer-divider {
+    margin: 25px 0;
+    order: 3;
+  }
+  .footer-contact-mail {
+    color: #CDCDCD;
+    margin: 0;
+    order: 2;
+  }
+
   .footer-page-link {
     font-size: 24px;
   }
+
+  .footer-copyright-information {
+    width: 40%;
+    min-width: 40%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    order: 4;
+    
+  }
+
+  .footer-design-develop, .footer-all-rights-reserved {
+    color: #696969;
+  }
+
+  .footer-email-button {
+    width: 361px;
+  }
+
+  .footer-subscribe-button {
+    justify-content: flex-start;
+  }
+
+}
+
+
+@media only screen and (max-width: 670px) {
+  :root {
+      --header-padding: 18px;
+  }
+
+  .footer-title {
+    width: 90%;
+  }
+
+}
+
+@media only screen and (max-width: 630px) {
+
+  
 }
 
 @media only screen and (max-width: 600px) {
+  :root {
+      --header-padding: 30px;
+  }
+  
+}
+
+@media only screen and (max-width: 480px) {
   :root {
       --header-padding: 30px;
   }
@@ -355,35 +400,10 @@
     line-height: 30.5px;
     margin-top: 50px;
   }
-  
-}
 
-@media only screen and (max-width: 480px) {
-  :root {
-      --header-padding: 30px;
-  }
-
-  .footer-copyright-information {
-      width: 40%;
-      min-width: 40%;
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 10px;
-      
-  }
-
-  .footer-design-develop, .footer-all-rights-reserved {
-      color: #696969;
-  }
-
-  .footer-email-button {
-      width: 361px;
-  }
-
-  .footer-subscribe-button {
-      justify-content: flex-start;
+  .ist-blockchain-events-logo-footer {
+    width: 380px;
+    min-width: 380px;
   }
 
 }

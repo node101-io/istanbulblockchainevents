@@ -40,28 +40,30 @@ block main
           h3 Quick Tips
           .quick-tips-bar
             .quick-tips-bar-text
-              .quick-tip-bar-left GMT+3
-              .quick-tip-bar-right Timezone
+              .quick-tip-bar-left Timezone
+              .quick-tip-bar-right GMT+3
           .quick-tips-bar
             .quick-tips-bar-text
-              .quick-tip-bar-left Tourist Visa (30/90 Days) &amp; E-Visa
-              .quick-tip-bar-right Requirements
+              .quick-tip-bar-left Requirements
+              .quick-tip-bar-right Tourist Visa (30/90 Days) &amp; E-Visa
           .quick-tips-bar
             .quick-tips-bar-text
-              .quick-tip-bar-left Turkish Lira
-              .quick-tip-bar-right Currency
+              .quick-tip-bar-left Currency
+              .quick-tip-bar-right Turkish Lira
           .quick-tips-bar
             .quick-tips-bar-text
-              .quick-tip-bar-left Turkish
-              .quick-tip-bar-right Official Language
+              .quick-tip-bar-left Official Language
+              .quick-tip-bar-right Turkish
           .quick-tips-bar
             .quick-tips-bar-text
-              .quick-tip-bar-left There are four climates
-              .quick-tip-bar-right Weather
+              .quick-tip-bar-left Weather
+              .quick-tip-bar-right There are four climates
         #getting-to-istanbul
           h1 Getting to Istanbul
           p
-            span Visa Requirements: Get your visa before you start your trip. Fortunately, Türkiye offers visa-free visits to citizens of many countries. Find out if you need a Visa by clicking here.
+            span Visa Requirements: Get your visa before you start your trip. Fortunately, Türkiye offers visa-free visits to citizens of many countries. Find out if you need a Visa by clicking 
+            span.blue-highlight-link 
+              a(href="https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa") here.
           h3 Istanbul Airports
           .airports-buttons
             .airport-bar
@@ -78,7 +80,8 @@ block main
                   .airport-full-name Istanbul Airport
                 .airport-detail
                   span Istanbul's main airport, located on the European side, can be reached by metro, bus, and taxi.
-              button.get-directions-button Get Directions
+              button.get-directions-button
+                a(href="https://www.google.com/maps/place/Istanbul+Airport/@41.2608325,28.740108,17z/data=!3m1!4b1!4m6!3m5!1s0x409ffff60abc95a9:0x380ce02cc824e506!8m2!3d41.2608285!4d28.7426829!16s%2Fm%2F0q3_6fq?entry=tts&shorturl=1") Get Directions
             .airport-bar
               .airports-information-mobile
                 .outer-links-with-arrow
@@ -93,7 +96,8 @@ block main
                   .airport-full-name Sabiha Gökçen Airport
                 .airport-detail
                   span Istanbul's secondary airport, located on the Asian side, can be reached by metro, bus, and taxi.
-              button.get-directions-button Get Directions
+              button.get-directions-button 
+                a(href="https://www.google.com/maps/place/Sabiha+G%C3%B6k%C3%A7en+International+Airport/@40.905375,29.3142854,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadbcbf424a153:0xacefca4d8098da74!8m2!3d40.905371!4d29.3168603!16zL20vMDJnbmhx?entry=tts&shorturl=1") Get Directions
         #where-to-stay
           h1 Where to Stay
           p
@@ -108,21 +112,25 @@ block main
             a.outer-link(href='https://exploretraveloasis.com/the-coolest-neighbourhoods-in-istanbul/') The coolest neighbourhoods in Istanbul
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
-          img.istanbul-map-accom(src=`${URL}/img/istanbul-map-accom.webp` alt='')
+          .istanbul-map-accom
+            iframe.responsive-iframe(src='https://www.google.com/maps/d/embed?mid=1f849Kw3dnj-ir_3ByWY9JDZlLMb2bBs&ehbc=2E312F')
         #history-culture-food
           h1 History, Culture &amp; Food
           p
             span Istanbul does not only stand out because it is the only city established on two continents. As a corner where many civilizations and cultures intersect, it is a part of the common heritage of human history.
           p
             span It is thought that the first permanent settlement was made by the Greek colonists around the 7th century BC, under the name 
-            span.blue-highlight Byzantium.
+            span.blue-highlight-link
+              a(href="https://ethereum.org/en/history/#byzantium") Byzantium.
           p
             span The Roman Emperor Constantine the Great named the city 
-            span.blue-highlight Constantinople
+            span.blue-highlight-link 
+              a(href="https://ethereum.org/en/history/#constantinople") Constantinople
             span  after he chose the city as the new capital of the Roman Empire, and the Medieval Ages began. When the Ottomans conquered the city in 1453, the Middle Ages closed, and the New Age began, and the name Constantinople continued to be used until the 1930s.
           p
             span With the establishment of the modern Turkish Republic, the name of the city becomes 
-            span.blue-highlight Istanbul.
+            span.blue-highlight-link 
+              a(href="https://ethereum.org/en/history/#istanbul") Istanbul.
           .outer-links-with-arrow
             a.outer-link(href='#') Recommended Restaurants to Try the Turkish Cuisine
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -132,7 +140,7 @@ block main
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
           .outer-links-with-arrow
-            a.outer-link(href='#') Tips about the City - an Instagram Account
+            a.outer-link(href='https://www.instagram.com/thegoodday_istanbul') Tips about the City - an Instagram Account
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
         #tips-from-locals
@@ -212,7 +220,10 @@ block main
             span As one of the most sophisticated public transport operations, it is the most used form of public transport by the public. There are more than 8000 stops and close to 1000 lines. Fun Fact: A bus line named 500T takes five hours, and the driver changes four times on a bus trip. The line connects the westernmost part of Istanbul with the easternmost.
           p
             span.bold-colored Ferry (Vapur): 
-            span It is by far the most characteristic and first public transportation vehicle of Istanbul. Click here for a list of ferry lines connecting East and West, Asia and Europe, Islands and the Mainland. Use the ferries to cross the street, buy bagels and tea. Throw your bagels to the seagulls who will accompany you along the way.
+            span It is by far the most characteristic and first public transportation vehicle of Istanbul. Click 
+            span.blue-highlight-link
+              a(href="https://www.sehirhatlari.istanbul/en/timetables/domestic-trips/inner-istanbul-ferry-lines-26") here 
+            span for a list of ferry lines connecting East and West, Asia and Europe, Islands and the Mainland. Use the ferries to cross the street, buy bagels and tea. Throw your bagels to the seagulls who will accompany you along the way.
           p
             span.bold-colored Dolmus (Shared Taxis): 
             span You can make your short-distance journeys with these minibuses using cash.
@@ -232,10 +243,17 @@ block main
             span.bold-colored BiTaksi: 
             span Taxi-Uberish app, as a local app its better for you to use this to call a taxi.
           p
-            span.bold-colored MartiTAG: 
+            span.blue-highlight-link
+              a(href="https://www.marti.tech/") MartiTAG: 
             span A new kind of a local UBER, you can give it a try as well.
           p
-            span.bold-colored Marti, binbin, and Fenix: 
+            span.blue-highlight-link 
+              a(href="https://www.marti.tech/") Marti, 
+            span.blue-highlight-link 
+              a(href="https://www.binbin.tech/") binbin, 
+            span.blue-highlight and
+            span.blue-highlight-link 
+              a(href="https://fenix.life/index-tr.html") Fenix: 
             span These are shared scooter apps that you can use in the city.
           p
             span.bold-colored isbike: 
@@ -251,10 +269,12 @@ block main
             span We recommend using public transport to reach the city center or other districts from the city's airports. If you have to use a taxi, use applications such as BiTaksi, Uber, MartiTAG. Apart from that, the taxis you hire may ask you for more money than it should be.
           h2 Public transport lines you can use
           p
-            span.bold-colored Havabus: 
+            span.blue-highlight-link
+              a(href="https://www.havabus.com/") Havabus: 
             span These are the official bus lines operating between Sabiha Gökçen Airport (SAW) and Taksim, Kadıköy and Yenisahra districts.
           p
-            span.bold-colored Havaist: 
+            span.blue-highlight-link
+              a(href="https://www.hava.ist/") Havaist: 
             span These are the official bus lines connecting various points of the city with the main airport of the city, Istanbul Airport (IST).
           p
             span.bold-colored IETT: 
@@ -264,11 +284,11 @@ block main
             span You can reach Istanbul Sabiha Gökçen Airport (SAW) with the M4 line, and Istanbul Airport (IST) with the M11 line.
           h2 More information
           .outer-links-with-arrow
-            a.outer-link(href='#') Istanbul Tourist Information - Public Transportation
+            a.outer-link(href='https://istanbul-tourist-information.com/en/public-transport-in-istanbul') Istanbul Tourist Information - Public Transportation
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
           .outer-links-with-arrow
-            a.outer-link(href='#') Chasing The Donkey - Public Transportation
+            a.outer-link(href='https://www.chasingthedonkey.com/getting-around-istanbul-transport') Chasing The Donkey - Public Transportation
             svg.link-arrow(viewbox='0 0 15 18' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M0.430946 14.512L12.7852 5.04508M1.04711 1.27072L10.9808 2.69043L14.4391 7.2035L13.4269 17.4262' stroke='#5B7CFF')
         #safety
