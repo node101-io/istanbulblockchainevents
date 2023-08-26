@@ -289,7 +289,7 @@
   height: 85px;
   min-height: 85px;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   border-radius: var(--bar-border-radius);
   background: var(--event-bar-bg-color);
@@ -300,7 +300,7 @@
   display: flex;
   width: 100%;
   min-width: 100%;
-  padding: 0 37px;
+  padding: 25px;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 1;
@@ -330,13 +330,17 @@
   font-size: 14px;
   font-weight: 400;
   min-width: 150px;
-  display: flex;
   align-content: center;
   margin-right: 5px;
 }
 
-.clicked {
-  height: 370px;
+.event-type {
+  text-align: right;
+}
+
+.clicked {  
+  flex-direction: column;
+  height: fit-content;
   gap: 15px;
 }
 
@@ -345,6 +349,7 @@
   align-items: center;
   gap: 10px;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .about-the-event-section-left {
@@ -618,8 +623,11 @@
 }
 
 @media only screen and (max-width: 1200px) {
-
+  .event-title {
+    min-width: 300px;
+  }
 }
+
 @media only screen and (max-width: 1000px) {
 
   .sidebar {
@@ -673,6 +681,9 @@
       height: 70px;
       min-height: 70px;
   }
+  .bar-information {
+    padding: 25px;
+  }
   .event-title {
       width: 150px;
       min-width: 150px;
@@ -684,7 +695,7 @@
 
   .clicked {
     gap: 0px;
-    height: 400px;
+    height: fit-content;
   }
 
   .top-intro-left-lower-title-node101-logo {
@@ -715,7 +726,7 @@
   }
 
   .clicked {
-    height: 470px;
+    height: fit-content;
   }
 }
 
