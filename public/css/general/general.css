@@ -64,7 +64,7 @@ input[type=number] {
   --main-events-color: rgba(104, 242, 158, 1);
   --side-events-color: rgba(91, 124, 255, 1);
   --party-color: rgba(255, 120, 37, 1);
-  --inactive-scroll-button-color: rgba(192, 161, 144, 1);
+  --inactive-scroll-button-color: rgba(47, 47, 47, 1);
   --event-bar-bg-color: rgba(33, 33, 33, 1); 
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
