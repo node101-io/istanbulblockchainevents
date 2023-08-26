@@ -226,7 +226,8 @@ h3 {
 }
 
 #getting-to-istanbul h3 {
-  margin-bottom: 24px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .airports-buttons {
@@ -313,11 +314,12 @@ h3 {
 
 .outer-links-with-arrow {
   display: flex;
+  width: fit-content;
   height: auto;
   align-items: flex-start;
-  gap: 14px;
-  margin-left: auto;
   justify-content: flex-start;
+  gap: 5px;
+  margin-right: auto;
 }
 
 .outer-link {
@@ -332,10 +334,11 @@ h3 {
 }
 
 .link-arrow {
-  width: 15.564px;
-  min-width: 15.564px;
-  height: 20.353px;
-  min-height: 20.353px;
+  width: 10.092px;
+  min-width: 10.092px;
+  height: 14.12px;
+  min-height: 14.12px;
+  flex-shrink: 0;
 }
 
 .istanbul-map-accom {
@@ -387,7 +390,6 @@ h3 {
 
 .bold-colored {
   color: #5B7CFF;
-  font-size: 16px;
   font-weight: 600;
 }
 

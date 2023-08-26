@@ -222,8 +222,15 @@
   align-items: flex-start;
 }
 
-.bar-extension-checkboxes svg {
-  margin-right: 5px;
+.bar-extension-checkboxes div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 12px;
+  min-width: 12px;
 }
 
 .bar-extension-type-selection {
