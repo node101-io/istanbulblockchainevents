@@ -60,7 +60,7 @@ input[type=number] {
   --top-intro-paragraph-color: rgba(238, 246, 252, 1);
   --top-intro-title-color: rgba(255, 255, 255, 1);;
   --gradient-title-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(104, 242, 158, 1) 100%);
-  --gradient-text-color: linear-gradient(47deg, rgba(255, 120, 37, 1) 10.98%, rgba(104, 242, 158, 1) 100%, rgba(91, 124, 255, 1) 100%);
+  --gradient-text-color: linear-gradient(0deg,rgba(255, 120, 37, 1) 1.95%, rgba(104, 242, 158, 1) 70.83%);
   --main-events-color: rgba(104, 242, 158, 1);
   --side-events-color: rgba(91, 124, 255, 1);
   --party-color: rgba(255, 120, 37, 1);

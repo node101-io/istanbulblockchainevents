@@ -24,7 +24,7 @@
   display: inline-flex;
   padding: 50px var(--header-padding) 20px var(--header-padding);
   align-items: flex-start;
-  gap: 5%;
+  gap: 25px;
 }
 
 .top-intro-left {
@@ -32,16 +32,17 @@
   flex-direction: column;
   align-items: flex-start;
   width: 50%;
-  gap: 61px;
+  gap: 30px;
 }
 
 .top-intro-left h1  {
   color: var(--top-intro-title-color);
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 400;
-  letter-spacing: 1%;
   width: 100%;
   min-width: 100%;
+  letter-spacing: 2px;
+
 }
 
 .istanbul-blockchain-events-logo {
@@ -65,6 +66,23 @@
   -webkit-background-clip: text;
   color: transparent;
   
+}
+
+.top-intro-left-lower-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.top-intro-left-lower-title-text {
+  width: fit-content;
+  min-width: fit-content;
+}
+
+.top-intro-left-lower-title-node101-logo {
+  width: 93px;
+  min-width: 93px;
+  margin-left: auto;
 }
 
 .gradient-text {
@@ -550,7 +568,9 @@
 
 }
 @media only screen and (max-width: 1500px) {
-
+  .top-intro-left-lower-title-node101-logo {
+    margin-left: 0;
+  }
 
 }
 @media only screen and (max-width: 1300px) {
@@ -657,6 +677,16 @@
     height: 400px;
   }
 
+  .top-intro-left-lower-title-node101-logo {
+    margin-left: auto;
+  }
+
+}
+
+@media only screen and (max-width: 720px) {
+  .top-intro-left-lower-title-node101-logo {
+    margin-left: 0;
+  }
 }
 
 @media only screen and (max-width: 630px) {
