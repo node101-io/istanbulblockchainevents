@@ -56,6 +56,7 @@ input[type=number] {
 :root {
   --header-background-color: rgba(0, 0, 0, 0.4);
   --default-text-color: rgba(217, 217, 217, 1);
+
   --website-background-color: rgba(20, 20, 20, 1);
   --top-intro-paragraph-color: rgba(238, 246, 252, 1);
   --top-intro-title-color: rgba(255, 255, 255, 1);;
@@ -66,6 +67,11 @@ input[type=number] {
   --party-color: rgba(255, 120, 37, 1);
   --inactive-scroll-button-color: rgba(47, 47, 47, 1);
   --event-bar-bg-color: rgba(33, 33, 33, 1); 
+  --event-location-color: rgba(206, 206, 206, 1);
+  --mobile-searchbar-color: rgba(193, 193, 193, 1);
+  --top-slider-element-mobile-color: rgba(39, 39, 39, 1);
+  --istanbul-guide-top-section-left-gradient: linear-gradient(146deg,rgba(255, 255, 255, 1) 30%, rgba(91, 124, 255, 1) 100%);
+  --sidebar-divider-color: rgba(119, 119, 119, 1);
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
 

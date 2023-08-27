@@ -1,21 +1,3 @@
-:root {
-  --header-background-color: rgba(0, 0, 0, 0.4);
-  --default-text-color: rgba(217, 217, 217, 1);
-  --website-background-color: rgba(20, 20, 20, 1);
-  --top-intro-paragraph-color: rgba(238, 246, 252, 1);
-  --top-intro-title-color: rgba(255, 255, 255, 1);;
-  --gradient-title-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(104, 242, 158, 1) 100%);
-  --gradient-text-color: linear-gradient(47deg, rgba(255, 120, 37, 1) 10.98%, rgba(104, 242, 158, 1) 100%, rgba(91, 124, 255, 1) 100%);
-  --main-events-color: rgba(104, 242, 158, 1);
-  --side-events-color: rgba(91, 124, 255, 1);
-  --party-color: rgba(255, 120, 37, 1);
-  --inactive-scroll-button-color: rgba(192, 161, 144, 1);
-  --event-bar-bg-color: rgba(33, 33, 33, 1); 
-  --footer-email-button-text-color: rgba(121,122,122,1);
-  --footer-divider-color: rgba(42,42,42,1);
-
-}
-
 .istanbul-guide-top-section {
   width: 100vw;
   height: fit-content;
@@ -34,7 +16,7 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: 1.66px;
-  background: linear-gradient(146deg,#FFF 30%, #5B7CFF 100%);
+  background: var(--istanbul-guide-top-section-left-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -83,7 +65,7 @@
   width: 1px;
   min-width: 1px;
   height: 500px;
-  background: #777;
+  background: var(--sidebar-divider-color);
 }
 
 .side-bar-element {
@@ -91,12 +73,12 @@
   height: 32px;
   font-size: 20px;
   font-weight: 400;
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   text-decoration: none;
 }
 
 .side-bar-element-active {
-  color: #5B7CFF;
+  color: var(--side-events-color);
 }
 
 .istanbul-guide-mobile-side-bar {
@@ -126,7 +108,7 @@
 .mobile-side-bar-divider {
   width: 100%;
   height: 1px;
-  background: #777;
+  background: var(--sidebar-divider-color);
 }
 
 .istanbul-guide-main-content {
@@ -147,7 +129,7 @@
 .istanbul-guide-main-content h1 {
   width: fit-content;
   height: fit-content;
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 28px;
   font-weight: 400;
 }
@@ -155,21 +137,21 @@
 h2 {
   width: fit-content;
   height: fit-content;
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 24px;
   font-weight: 500;
 }
 
 .istanbul-guide-main-content p {
   width: fit-content;
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 18px;
   font-weight: 400;
   line-height: 37px;
 }
 
 h3 {
-  color: #D9D9D9;
+  color: var(--default-text-color);
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 50px;
@@ -205,14 +187,14 @@ h3 {
 }
 
 .quick-tip-bar-left {
-  color: #5B7CFF;
+  color: var(--side-events-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
 
 .quick-tip-bar-right {
-  color: #D9D9D9;
+  color: var(--default-text-color);
   font-size: 16px;
   font-weight: 400;
 }
@@ -248,17 +230,17 @@ h3 {
   justify-content: space-between;
   gap: 23px;
   border-radius: 10px;
-  background: #212121;
+  background: var(--event-bar-bg-color);
 }
 
 .airport-icao-code {
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 22px;
   font-weight: 400;
 }
 
 .airport-full-name {
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 28px;
   font-weight: 400;
 }
@@ -273,7 +255,7 @@ h3 {
 .airport-detail {
   width: fit-content;
   height: 32px;
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 16px;
   font-weight: 400;
 }
@@ -293,15 +275,15 @@ h3 {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid #5B7CFF;
-  background: #5B7CFF;
+  border: 1px solid var(--side-events-color);
+  background: var(--side-events-color);
   font-size: 16px;
   font-weight: 400;
 }
 
 .get-directions-button a {
   text-decoration: none;
-  color: #141414;
+  color: var(--website-background-color);
 }
 
 #where-to-stay {
@@ -327,7 +309,7 @@ h3 {
   text-decoration: none;
   width: fit-content;
   height: auto;
-  color: #5B7CFF;
+  color: var(--side-events-color);
   font-size: 16px;
   font-weight: 400;
   flex-wrap: wrap;
@@ -367,12 +349,12 @@ h3 {
 }
 
 .blue-highlight {
-  color: #5B7CFF;
+  color: var(--side-events-color);
 }
 
 .blue-highlight-link a {
   text-decoration: none;
-  color: #5B7CFF;
+  color: var(--side-events-color);
 }
 
 #history-culture-food .outer-links-with-arrow, #tips-from-locals .outer-links-with-arrow, #transportation .outer-links-with-arrow{
@@ -389,12 +371,12 @@ h3 {
 }
 
 .bold-colored {
-  color: #5B7CFF;
+  color: var(--side-events-color);
   font-weight: 600;
 }
 
 li {
-  color: #EEF6FC;
+  color: var(--top-intro-paragraph-color);
   font-size: 18px;
   font-weight: 400;
   line-height: 37px;
@@ -491,7 +473,7 @@ li {
     justify-content: center;
     gap: 0px;
     border-radius: 10px;
-    background: #212121;
+    background: var(--event-bar-bg-color);
   }
 
   .airports-information {
