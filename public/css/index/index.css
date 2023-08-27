@@ -355,12 +355,6 @@
   font-weight: 400;
 }
 
-.more-info {
-  height: 446px;
-  justify-content: flex-start;
-  padding-top: 59px;
-}
-
 .about-the-event-buttons {
   display: flex;
   align-items: flex-start;
@@ -375,7 +369,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid var(----main-events-color);
+  border: 1px solid var(--main-events-color);
   background: var(--main-events-color);
   color: var(--website-background-color);
   font-size: 18px;

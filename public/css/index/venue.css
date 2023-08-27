@@ -258,6 +258,15 @@
   gap: 50px;
 }
 
+.bar-information {
+  display: flex;
+  min-width: 100%;
+  padding: 25px 82px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 1;
+}
+
 .venue-title {
   font-size: 18px;
   font-weight: 400;
@@ -270,9 +279,246 @@
   font-size: 14px;
   font-weight: 400;
   min-width: 150px;
-  display: flex;
   align-content: center;
   margin-right: 5px;
+  text-align: right;
+}
+
+.link-to-venue-button {
+  display: flex;
+  width: 157px;
+  height: 40px;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--side-events-color);
+  background: var(--side-events-color);
+  color: var(--website-background-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.about-the-venue-image {
+  width: 90%;
+  min-width: 90%;
+  height: auto;
+  min-height: auto;
+  align-self: flex-end;
+}
+
+.about-the-venue-mobile-version .about-the-venue-image {
+  width: 267px;
+  min-width: 267px;
+  height: fit-content;
+  min-height: fit-content;
+  margin-bottom: 10px;
+}
+
+.venue-standing-capacity {
+  text-align: right;
+}
+
+.venue-bar-gray-text {
+  color: var(--venue-bar-gray-text-color);
+  margin-right: 10px;
+}
+
+.clicked {  
+  flex-direction: column;
+  height: fit-content;
+  gap: 15px;
+}
+
+.about-the-venue {
+  display: flex;
+  min-width: 100%;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 0 82px;
+}
+
+.about-the-venue-section-left {
+  width: 45%;
+  min-width: 45%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 29px;
+  margin-right: 20px;
+}
+
+.about-the-venue-section-left h3 {
+  color: var(--top-intro-paragraph-color);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.about-the-venue-section-left p, .about-the-venue-mobile-version p {
+  color: var(--top-intro-paragraph-color);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.venue-location {
+  display: flex;
+  padding: 0px 7px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.venue-location p, .about-the-venue-mobile-version .venue-location {
+  color: var(--event-location-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.5px;
+}
+
+.about-the-venue-mobile-version .venue-location {
+  align-self: center;
+}
+
+.about-the-venue-mobile-version {
+  width: 100%;
+  min-width: 100%;
+  padding: 0 37px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+.about-the-venue-mobile-version .about-the-venue-image {
+  width: 267px;
+  min-width: 267px;
+  height: fit-content;
+  min-height: fit-content;
+  margin-bottom: 10px;
+}
+
+.about-the-venue-mobile-version p {
+  color: var(--top-intro-paragraph-color);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.venue-contact-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.venue-phone-number, .venue-email-address {
+  color: var(--side-events-color);
+}
+
+@media only screen and (max-width: 1300px) {
+
+  .venue-accom-bottom-content {
+    gap: 80px;
+  }
+
+  .about-the-venue-section-left h3 {
+    font-size: 20px;
+  }
+  
+  .about-the-venue-section-left p {
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  .link-to-venue-button {
+    width: 120px;
+    font-size: 14px;
+  }
+
+  .about-the-venue {
+    padding: 0 25px;
+  }
+
+  .bar-information {
+    padding: 25px;
+  }
+
+  .event-title {
+    min-width: 300px;
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-search-filter-section {
+    display: flex;
+  }
+  
+  .main-content {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bottom-content {
+    flex-direction: column;
+  }
+
+  .venue-title {
+    font-size: 18px;
+    min-width: 290px;
+  }
+
+  .venue-type, .venue-date {
+    font-size: 14px;
+  }
+
+  .about-the-event-image {
+    width: 90%;
+    min-width: 90%;
+    height: auto;
+    min-height: auto;
+  }
+  
+}
+@media only screen and (max-width: 760px) {
+
+  .top-intro {
+    display: block;
+  }
+
+  .top-intro-left {
+    min-width: 100%;
+  }
+
+  .top-intro-right {
+    margin-top: 50px;
+    min-width: 100%;
+  }
+  .event-bar {
+    height: 70px;
+    min-height: 70px;
+  }
+  .event-title {
+    width: 150px;
+    min-width: 150px;
+  }
+  .venue-seated-capacity, .venue-standing-capacity {
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .clicked {
+    gap: 0px;
+    height: fit-content;
+  }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -289,26 +535,63 @@
 
 @media only screen and (max-width: 670px) {
 
-  .venue-bar {
-      height: 70px;
-      min-height: 70px;
-  }
-  .venue-title {
-      width: 150px;
-      min-width: 150px;
-  }
-  .venue-seated-capacity, .venue-standing-capacity {
-      min-width: 70px;
+  .about-the-venue {
+    display: none;
   }
 
-  .venue-accom-top-section {
-      font-size: 60px;
+  .about-the-venue-mobile-version {
+    display: flex;
+  }
+
+  .about-the-venue-image {
+    align-self: center;
+  }
+
+  .venue-location {
+    margin-bottom: 15px;
+  }
+
+  .clicked {
+    height: fit-content;
+  }
+
+  .link-to-venue-button {
+    width: 20%;
+    min-width: 20%;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .about-the-venue-mobile-version {
+    padding: 0 25px;
+  }
+
+  .venue-seated-capacity {
+    margin-right: 30px;
+  }
+
+  .venue-title {
+    min-width: 100px;
   }
   
+}
+
+@media only screen and (max-width: 520px) {
+  .venue-bar-gray-text {
+    margin-right: 0;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   .venue-accom-top-section {
       display: none;
   } 
+
+  .about-the-venue-mobile-version p {
+    color: var(--top-intro-paragraph-color);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
 }

@@ -71,6 +71,7 @@ input[type=number] {
   --mobile-searchbar-color: rgba(193, 193, 193, 1);
   --top-slider-element-mobile-color: rgba(39, 39, 39, 1);
   --istanbul-guide-top-section-left-gradient: linear-gradient(146deg,rgba(255, 255, 255, 1) 30%, rgba(91, 124, 255, 1) 100%);
+  --venue-bar-gray-text-color: rgba(116, 116, 116, 1);
   --sidebar-divider-color: rgba(119, 119, 119, 1);
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
