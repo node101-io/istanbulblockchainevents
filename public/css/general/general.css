@@ -75,6 +75,21 @@ input[type=number] {
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
 
+  --node101-logo-width: 93px;
+  --node101-logo-height: 38px;
+  --node101-logo-position-bottom: -20px;
+  --node101-logo-position-right: 0px;
+
+  --event-type-date-fontsize: 18px;
+
+  --scroll-button-width: 8px;
+  --scroll-button-height: 8px;
+
+  --bar-border-radius: 10px;
+  --bar-width: 200px;
+  --bar-padding: 10px 20px;
+  --submit-button-padding: 16px 40px;
+
   --header-height: 100px;
   --header-padding: 150px;
 
