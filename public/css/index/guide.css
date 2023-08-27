@@ -187,16 +187,20 @@ h3 {
 }
 
 .quick-tip-bar-left {
-  color: var(--side-events-color);
+  color: var(--default-text-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
 
 .quick-tip-bar-right {
-  color: var(--default-text-color);
+  color: var(--side-events-color);
   font-size: 16px;
   font-weight: 400;
+  margin-left: 10px;
+  text-decoration: none;
+  text-align: right;
+  white-space: nowrap;
 }
 
 #getting-to-istanbul {
@@ -519,6 +523,10 @@ li {
 
   .istanbul-guide-top-section {
       display: none;
+  }
+
+  .quick-tips-bar {
+    padding: 10px 0px;
   }
 
   .quick-tips-bar-text {
