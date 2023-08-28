@@ -69,9 +69,9 @@ block main
           svg.filter-icon( viewbox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M12.1667 20H8.83333C8.39131 20 7.96738 19.8244 7.65482 19.5118C7.34226 19.1993 7.16667 18.7754 7.16667 18.3333V12.0083L0.991667 5.83333C0.678677 5.52221 0.501861 5.09965 0.5 4.65833V1.66667C0.5 1.22464 0.675595 0.800716 0.988155 0.488155C1.30072 0.175595 1.72464 0 2.16667 0H18.8333C19.2754 0 19.6993 0.175595 20.0118 0.488155C20.3244 0.800716 20.5 1.22464 20.5 1.66667V4.65833C20.4981 5.09965 20.3213 5.52221 20.0083 5.83333L13.8333 12.0083V18.3333C13.8333 18.7754 13.6577 19.1993 13.3452 19.5118C13.0326 19.8244 12.6087 20 12.1667 20ZM2.16667 1.66667V4.65833L8.83333 11.325V18.3333H12.1667V11.325L18.8333 4.65833V1.66667H2.16667Z' fill='#EEF6FC')
       .sidebar
-        .bar
+        form.bar#search-bar
           .bar-content
-            p Search
+            input(type="text" placeholder = "Search")
             svg.search-icon(viewbox='0 0 24 25' xmlns='http://www.w3.org/2000/svg')
               path(d='M21.75 21.1895L16.0859 15.5254C17.447 13.8914 18.1257 11.7956 17.9808 9.67399C17.836 7.55236 16.8788 5.56824 15.3083 4.13438C13.7378 2.70053 11.675 1.92733 9.549 1.97565C7.42298 2.02396 5.39742 2.89006 3.89371 4.39377C2.39 5.89748 1.5239 7.92304 1.47558 10.0491C1.42727 12.1751 2.20047 14.2379 3.63432 15.8084C5.06818 17.3788 7.0523 18.336 9.17393 18.4809C11.2956 18.6257 13.3914 17.947 15.0253 16.586L20.6894 22.2501L21.75 21.1895ZM2.99999 10.2501C2.99999 8.91503 3.39588 7.60999 4.13757 6.49996C4.87927 5.38992 5.93348 4.52476 7.16688 4.01387C8.40028 3.50298 9.75748 3.3693 11.0669 3.62975C12.3762 3.8902 13.579 4.53308 14.523 5.47708C15.467 6.42109 16.1098 7.62382 16.3703 8.9332C16.6307 10.2426 16.4971 11.5998 15.9862 12.8332C15.4753 14.0666 14.6101 15.1208 13.5001 15.8625C12.3901 16.6042 11.085 17.0001 9.74999 17.0001C7.96039 16.9981 6.24466 16.2863 4.97922 15.0208C3.71378 13.7554 3.00198 12.0397 2.99999 10.2501Z' fill='#EEF6FC')
         .bar
@@ -190,12 +190,66 @@ block main
             .event-title.main-events Ravemos
             .event-date Oct 3
             .event-type Hackathon
+          .about-the-event-mobile-version
+            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
+            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+            .about-the-event-buttons
+              .link-to-event-button.party-link-to-event-button
+                span Link to Event
+              .add-to-calendar-button.party-calendar-button
+                span Add to Calendar
+            .event-location
+              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
+          .about-the-event
+            .about-the-event-section-left
+              h3 About the Event
+              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+              .about-the-event-buttons
+                .link-to-event-button.party-link-to-event-button
+                  span Link to Event
+                .add-to-calendar-button.party-calendar-button
+                  span Add to Calendar
+            .about-the-event-section-right
+              img.about-the-event-image(src='img/about-event-img.webp' alt='')
+              .event-location
+                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
         .event-bar
           .bar-information
             .event-title.side-events ETH Istanbul Development
             .event-date Oct 3
             .event-type Conference
-        .event-bar.clicked
+          .about-the-event-mobile-version
+            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
+            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+            .about-the-event-buttons
+              .link-to-event-button.party-link-to-event-button
+                span Link to Event
+              .add-to-calendar-button.party-calendar-button
+                span Add to Calendar
+            .event-location
+              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
+          .about-the-event
+            .about-the-event-section-left
+              h3 About the Event
+              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+              .about-the-event-buttons
+                .link-to-event-button.party-link-to-event-button
+                  span Link to Event
+                .add-to-calendar-button.party-calendar-button
+                  span Add to Calendar
+            .about-the-event-section-right
+              img.about-the-event-image(src='img/about-event-img.webp' alt='')
+              .event-location
+                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
+        .event-bar
           .bar-information
             .event-title.party Ravemos
             .event-date Oct 3
@@ -232,8 +286,62 @@ block main
             .event-title.main-events Ravemos
             .event-date Oct 3
             .event-type Main Event
+          .about-the-event-mobile-version
+            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
+            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+            .about-the-event-buttons
+              .link-to-event-button.party-link-to-event-button
+                span Link to Event
+              .add-to-calendar-button.party-calendar-button
+                span Add to Calendar
+            .event-location
+              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
+          .about-the-event
+            .about-the-event-section-left
+              h3 About the Event
+              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+              .about-the-event-buttons
+                .link-to-event-button.party-link-to-event-button
+                  span Link to Event
+                .add-to-calendar-button.party-calendar-button
+                  span Add to Calendar
+            .about-the-event-section-right
+              img.about-the-event-image(src='img/about-event-img.webp' alt='')
+              .event-location
+                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
         .event-bar
           .bar-information
             .event-title.side-events ETH Istanbul Development
             .event-date Oct 3
             .event-type Side Event
+          .about-the-event-mobile-version
+            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
+            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+            .about-the-event-buttons
+              .link-to-event-button.party-link-to-event-button
+                span Link to Event
+              .add-to-calendar-button.party-calendar-button
+                span Add to Calendar
+            .event-location
+              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
+          .about-the-event
+            .about-the-event-section-left
+              h3 About the Event
+              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+              .about-the-event-buttons
+                .link-to-event-button.party-link-to-event-button
+                  span Link to Event
+                .add-to-calendar-button.party-calendar-button
+                  span Add to Calendar
+            .about-the-event-section-right
+              img.about-the-event-image(src='img/about-event-img.webp' alt='')
+              .event-location
+                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul

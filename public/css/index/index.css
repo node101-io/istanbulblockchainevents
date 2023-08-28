@@ -319,14 +319,8 @@
   text-align: right;
 }
 
-.clicked {  
-  flex-direction: column;
-  height: fit-content;
-  gap: 15px;
-}
-
 .about-the-event {
-  display: flex;
+  display: none;
   min-width: 100%;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -563,6 +557,33 @@
 .filter-icon {
   width: 20px;
   height: 20px;
+}
+
+.clicked {
+  flex-direction: column;
+  height: fit-content;
+  gap: 15px;
+}
+
+.show {
+  display: flex;
+}
+
+.bar-content input {
+  width: 120px;
+  outline: none;
+  border: none;
+  background: transparent;
+  color:var(--default-text-color);
+
+}
+
+.bar-content input:focus {
+  &::-webkit-input-placeholder {
+    color: transparent;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+    }
 }
 
 @media only screen and (min-width: 1900px) {
