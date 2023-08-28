@@ -185,7 +185,7 @@
 }
 
 .bar-extension-date-selection {
-  display: flex;
+  display: none;
   width: var(--bar-width);
   padding: 23px;
   height: 350px;
@@ -216,7 +216,7 @@
 }
 
 .bar-extension-type-selection {
-  display: flex;
+  display: none;
   width: var(--bar-width);
   padding: 23px;
   height: 350px;
@@ -225,6 +225,14 @@
   color: var(--default-text-color);
   font-size: 14px;
   font-weight: 400;
+}
+
+.sidebar-extension-show {
+  display: flex;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
 }
 
 .search-icon {
