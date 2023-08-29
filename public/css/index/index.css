@@ -210,9 +210,19 @@
   gap: 8px;
 }
 
-.checkbox {
+.checkbox-icon {
   width: 12px;
   min-width: 12px;
+}
+
+.checkbox-icon-active {
+  display: none;
+  width: 12px;
+  min-width: 12px;
+}
+
+.checkbox-clicked {
+  display: block;
 }
 
 .bar-extension-type-selection {

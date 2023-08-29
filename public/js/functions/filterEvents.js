@@ -1,5 +1,4 @@
 const eventsSection = document.querySelector("body .all-content .bottom-content .main-content");
-
 const searchBar = document.forms['search-bar'].querySelector('input');
 
 searchBar.addEventListener('keyup', (e) => {
