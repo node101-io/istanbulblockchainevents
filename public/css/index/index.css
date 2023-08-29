@@ -604,6 +604,46 @@
     }
 }
 
+/* .mobile-filter-extended-window {
+  display: flex;
+  width: 100vw;
+  min-width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background: blue;
+  backdrop-filter: blur(43px);
+}
+
+.filter-window-header {
+  display: flex;
+  width: 325px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-filter-bars-container {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.mobile-filter-date-bar {
+  display: flex;
+  width: var(--bar-width);
+  height: 40px;
+  padding: var(--bar-padding);
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: var(--bar-border-radius);
+  background: var(--event-bar-bg-color);
+  color: var(--default-text-color);
+  font-size: 14px;
+  font-weight: 400;
+} */
+
 @media only screen and (min-width: 1900px) {
 
 }
@@ -656,6 +696,10 @@
 
   .sidebar {
     display: none;
+  }
+
+  .mobile-filter-extended-window {
+    display: flex;
   }
 
   .mobile-search-filter-section {
@@ -747,7 +791,7 @@
     display: none;
   }
 
-  .about-the-event-mobile-version {
+  .about-the-event-mobile-version.show {
     display: flex;
   }
 

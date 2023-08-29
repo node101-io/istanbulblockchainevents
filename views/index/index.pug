@@ -1,6 +1,32 @@
 extends ../partials/header
 block main
   .all-content
+    //.mobile-filter-extended-window
+      .filter-window-header
+        span Filter
+        svg(width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg")
+          path(d="M23 2.21875L21.0312 0.25L11.75 9.53125L2.46875 0.25L0.5 2.21875L9.78125 11.5L0.5 20.7812L2.46875 22.75L11.75 13.4687L21.0312 22.75L23 20.7812L13.7187 11.5L23 2.21875Z" fill="#F4F4F4")
+      .mobile-filter-bars-container
+        .mobile-filter-date-bar
+          .mobile-filter-bar-content
+            span Date
+        .mobile-filter-date-bar-extended
+          .mobile-filter-date-bar-extended-items
+            p.filter-button All Dates
+            p.filter-button Jan
+            p.filter-button Feb
+            p.filter-button Mar
+            p.filter-button Apr
+            p.filter-button May
+            p.filter-button Jun
+            p.filter-button Jul
+            p.filter-button Aug
+            p.filter-button Sep
+            p.filter-button Oct
+            p.filter-button Nov
+            p.filter-button Dec
+        .mobile-filter-type-bar
+        .mobile-filter-type-bar-extended
     .top-intro
       .top-slider-section-mobile
         .top-slider-element-mobile
