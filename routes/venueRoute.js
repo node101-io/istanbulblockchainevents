@@ -4,14 +4,14 @@ const router = express.Router();
 
 const generateConstantData = require('../middleware/generateConstantData');
 
-const indexGetController = require('../controllers/index/index/get');
+const venueGetController = require('../controllers/venue/index/get');
 
-const filterPostController = require('../controllers/index/filter/post');
+const filterPostController = require('../controllers/venue/filter/post');
 
 router.get(
   '/',
     generateConstantData,
-    indexGetController
+    venueGetController
 );
 
 router.post(
