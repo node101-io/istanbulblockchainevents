@@ -1,5 +1,7 @@
 extends ../partials/header
 block main
+  input.display-none#events-json(value=JSON.stringify(events))
+  input.display-none#slider-json(value=JSON.stringify(slider))
   .all-content
     //.mobile-filter-extended-window
       .filter-window-header
@@ -28,31 +30,31 @@ block main
         .mobile-filter-type-bar
         .mobile-filter-type-bar-extended
     .top-intro
-      .top-slider-section-mobile
-        .top-slider-element-mobile
-          img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-          p.event-name ETH Istanbul Devconnect
-          .box-bottom-info
-            p.event-info March 16th, 2023
-            p.event-info Conference
-        .top-slider-element-mobile
-          img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-          p.event-name ETH Istanbul Devconnect
-          .box-bottom-info
-            p.event-info March 16th, 2023
-            p.event-info Conference
-        .top-slider-element-mobile
-          img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-          p.event-name ETH Istanbul Devconnect
-          .box-bottom-info
-            p.event-info March 16th, 2023
-            p.event-info Conference
-        .top-slider-element-mobile
-          img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-          p.event-name ETH Istanbul Devconnect
-          .box-bottom-info
-            p.event-info March 16th, 2023
-            p.event-info Conference
+      //- .top-slider-section-mobile
+      //-   .top-slider-element-mobile
+      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
+      //-     p.event-name ETH Istanbul Devconnect
+      //-     .box-bottom-info
+      //-       p.event-info March 16th, 2023
+      //-       p.event-info Conference
+      //-   .top-slider-element-mobile
+      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
+      //-     p.event-name ETH Istanbul Devconnect
+      //-     .box-bottom-info
+      //-       p.event-info March 16th, 2023
+      //-       p.event-info Conference
+      //-   .top-slider-element-mobile
+      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
+      //-     p.event-name ETH Istanbul Devconnect
+      //-     .box-bottom-info
+      //-       p.event-info March 16th, 2023
+      //-       p.event-info Conference
+      //-   .top-slider-element-mobile
+      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
+      //-     p.event-name ETH Istanbul Devconnect
+      //-     .box-bottom-info
+      //-       p.event-info March 16th, 2023
+      //-       p.event-info Conference
       .top-intro-left
         h1
           .top-intro-left-upper-title
@@ -74,16 +76,38 @@ block main
           span Istanbul Blockchain Events is a public good project that allows you to find all crypto events held in Istanbul. This project is fully funded by 
           span.gradient-text node101.
       .top-intro-right
-        img.top-right-event-image(src=`${URL}/img/main-page-eth-photo.webp` alt='')
-        p.event-name ETH Istanbul Devconnect
-        .box-bottom-info
-          p.event-info March 16th, 2023
-          p.event-info Conference
-        .pages-scroll-buttons
-          .pages-scroll-buttons-active
-          .pages-scroll-buttons-inactive
-          .pages-scroll-buttons-inactive
-          .pages-scroll-buttons-inactive
+        each slide in slider
+          img.top-right-event-image(src=slide.logo loading="lazy" alt='')
+          p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
+          .box-bottom-info
+            - let startDate = slide.start_date;
+            - let endDate = slide.end_date;
+            - let formattedDate = '';
+            - let startDay = startDate.getDate(), endDay = (endDate) ? endDate.getDate() : null;
+            - let startMonth = FULL_MONTHS[startDate.getMonth()], endMonth = (endDate) ? FULL_MONTHS[endDate.getMonth()] : null;
+            - let startYear = startDate.getFullYear(), endYear = (endDate) ? endDate.getFullYear() : null;
+
+            if (!endDate || startDate.getTime() === endDate.getTime())
+              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)}, ${startYear}`;
+            else if (startDate.getMonth() === endDate.getMonth() && startYear === endYear)
+              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)} - ${endDay}${getSuffix(endDay)}, ${startYear}`;
+            else if (startYear === endYear)
+              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)} - ${endMonth} ${endDay}${getSuffix(endDay)}, ${startYear}`;
+            else
+              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)}, ${startYear} - ${endMonth} ${endDay}${getSuffix(endDay)}, ${endYear}`;
+
+            p.event-info= formattedDate
+            p.event-info= EVENT_TYPES[ ['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(slide.event_type) ]
+          
+          .pages-scroll-buttons
+            each slide, i in slider
+              if i == 0
+                .pages-scroll-buttons-active
+              else
+                .pages-scroll-buttons-inactive
+      - function getSuffix(date)
+        - let lastDigit = date % 10, lastTwoDigits = date % 100;
+        - return (lastTwoDigits >= 11 && lastTwoDigits <= 13) ? 'th' : ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th'][lastDigit];
     .bottom-content
       .mobile-search-filter-section
         .mobile-search-bar
@@ -108,90 +132,14 @@ block main
         .bar-extension-date-selection
           .bar-extension-checkboxes
             strong All Dates
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         January
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         February
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         March
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         April
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         May
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         June
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         July
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         August
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         September
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         October
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         November
-            div(data-checked="false")
-              svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-                rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
-              span                                         December
+            each month in FULL_MONTHS
+              div(data-checked="false")
+                svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                  rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
+                span #{month}
         .bar
           .bar-content
             p Type
@@ -199,211 +147,51 @@ block main
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
         .bar-extension-type-selection
           .bar-extension-checkboxes
-            strong All
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span.party                                   Party
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Conference
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Hackathon
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Meetup
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Workshop
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Dinner
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Brunch
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Co-Living
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         NFTs
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Tour
-            div
-              svg.checkbox(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
-                rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
-              span                                         Other
+            strong All Types
+            each type in EVENT_TYPES
+              div(data-checked="false")
+                svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                  rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
+                span #{type}
         .submit-button
           span Submit Event
       .main-content
-        .event-bar
-          .bar-information
-            .event-title.main-events Ravemos
-            .event-date Oct 3
-            .event-type Hackathon
-          .about-the-event-mobile-version
-            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
-            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-            .about-the-event-buttons
-              .link-to-event-button.party-link-to-event-button
-                span Link to Event
-              .add-to-calendar-button.party-calendar-button
-                span Add to Calendar
-            .event-location
-              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
-          .about-the-event
-            .about-the-event-section-left
-              h3 About the Event
-              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
+        each event in events 
+          .event-bar
+            .bar-information
+              .event-title(class=event.is_side ? 'side-events' : 'main-events')= event.name
+              .event-date #{SHORT_MONTHS[event.start_date.getMonth()]} #{event.start_date.getDate()}#{event.end_date && event.start_date.getMonth() === event.end_date.getMonth() ? ' - ' + event.end_date.getDate() : ''}
+              .event-type= EVENT_TYPES[ ['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(event.event_type) ]
+            .about-the-event-mobile-version
+              img.about-the-event-image(src= event.logo alt='')
+              p #{event.description}
               .about-the-event-buttons
-                .link-to-event-button.party-link-to-event-button
+                .link-to-event-button(class=event.is_side ? 'side-link-to-event-button' : 'main-link-to-event-button')
                   span Link to Event
-                .add-to-calendar-button.party-calendar-button
+                .add-to-calendar-button.calendar-button
                   span Add to Calendar
-            .about-the-event-section-right
-              img.about-the-event-image(src='img/about-event-img.webp' alt='')
               .event-location
                 svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
                   path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
-        .event-bar
-          .bar-information
-            .event-title.side-events ETH Istanbul Development
-            .event-date Oct 3
-            .event-type Conference
-          .about-the-event-mobile-version
-            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
-            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-            .about-the-event-buttons
-              .link-to-event-button.party-link-to-event-button
-                span Link to Event
-              .add-to-calendar-button.party-calendar-button
-                span Add to Calendar
-            .event-location
-              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
-          .about-the-event
-            .about-the-event-section-left
-              h3 About the Event
-              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-              .about-the-event-buttons
-                .link-to-event-button.party-link-to-event-button
-                  span Link to Event
-                .add-to-calendar-button.party-calendar-button
-                  span Add to Calendar
-            .about-the-event-section-right
-              img.about-the-event-image(src='img/about-event-img.webp' alt='')
-              .event-location
-                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
-        .event-bar
-          .bar-information
-            .event-title.party Ravemos
-            .event-date Oct 3
-            .event-type Party
-          .about-the-event-mobile-version
-            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
-            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-            .about-the-event-buttons
-              .link-to-event-button.party-link-to-event-button
-                span Link to Event
-              .add-to-calendar-button.party-calendar-button
-                span Add to Calendar
-            .event-location
-              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
-          .about-the-event
-            .about-the-event-section-left
-              h3 About the Event
-              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-              .about-the-event-buttons
-                .link-to-event-button.party-link-to-event-button
-                  span Link to Event
-                .add-to-calendar-button.party-calendar-button
-                  span Add to Calendar
-            .about-the-event-section-right
-              img.about-the-event-image(src='img/about-event-img.webp' alt='')
-              .event-location
-                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
-        .event-bar
-          .bar-information
-            .event-title.main-events Ravemos
-            .event-date Oct 3
-            .event-type Main Event
-          .about-the-event-mobile-version
-            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
-            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-            .about-the-event-buttons
-              .link-to-event-button.party-link-to-event-button
-                span Link to Event
-              .add-to-calendar-button.party-calendar-button
-                span Add to Calendar
-            .event-location
-              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
-          .about-the-event
-            .about-the-event-section-left
-              h3 About the Event
-              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-              .about-the-event-buttons
-                .link-to-event-button.party-link-to-event-button
-                  span Link to Event
-                .add-to-calendar-button.party-calendar-button
-                  span Add to Calendar
-            .about-the-event-section-right
-              img.about-the-event-image(src='img/about-event-img.webp' alt='')
-              .event-location
-                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
-        .event-bar
-          .bar-information
-            .event-title.side-events ETH Istanbul Development
-            .event-date Oct 3
-            .event-type Side Event
-          .about-the-event-mobile-version
-            img.about-the-event-image(src= `${URL}/img/about-event-img.webp` alt='')
-            p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-            .about-the-event-buttons
-              .link-to-event-button.party-link-to-event-button
-                span Link to Event
-              .add-to-calendar-button.party-calendar-button
-                span Add to Calendar
-            .event-location
-              svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-              p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul    
-          .about-the-event
-            .about-the-event-section-left
-              h3 About the Event
-              p Lorem ipsum dolor sit amet consectetur. Porta nisi ultricies augue faucibus laoreet laoreet tincidunt. Convallis turpis tortor id fermentum pharetra. Massa ultrices lacus habitasse a facilisis massa nam pharetra. Velit netus mauris tellus vel nec.
-              .about-the-event-buttons
-                .link-to-event-button.party-link-to-event-button
-                  span Link to Event
-                .add-to-calendar-button.party-calendar-button
-                  span Add to Calendar
-            .about-the-event-section-right
-              img.about-the-event-image(src='img/about-event-img.webp' alt='')
-              .event-location
-                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
-                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
-                p Azapkapı, Bankalar Cd. No:11, 34420 Beyoğlu/İstanbul
+                p #{event.location}
+            .about-the-event
+              .about-the-event-section-left
+                h3 About the Event 
+                p #{event.description}
+                .about-the-event-buttons
+                  .link-to-event-button(class=event.is_side ? 'side-link-to-event-button' : 'main-link-to-event-button')
+                    span Link to Event
+                  .add-to-calendar-button.calendar-button
+                    span Add to Calendar
+              .about-the-event-section-right
+                img.about-the-event-image(src= event.logo alt='')
+                .event-location
+                  svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                    path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                  p #{event.location}
+    .general-events-loading-icon-wrapper#events-loading-icon
+      svg.general-events-loading-icon(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512')
+        path(d='M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z')
