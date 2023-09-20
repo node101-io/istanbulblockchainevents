@@ -1,6 +1,6 @@
 module.exports = (req, res) => {
-  return res.render('index/guide', {
-    page: 'index/guide',
+  return res.render('guide/index', {
+    page: 'guide/index',
     title: 'İstanbul Blockchain Events',
     includes: {
       external: {
