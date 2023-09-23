@@ -162,7 +162,7 @@ block main
         each event, index in events
           if index > 0 && event.start_date.getMonth() !== events[index - 1].start_date.getMonth()
             span.month-separator= FULL_MONTHS[event.start_date.getMonth()]
-          .event-bar.event-bar-open
+          .event-bar
             .bar-information
               .event-title(class=event.is_side ? 'side-events' : 'main-events')= event.name
               .event-date #{SHORT_MONTHS[event.start_date.getMonth()]} #{event.start_date.getDate()}#{event.end_date && event.start_date.getMonth() === event.end_date.getMonth() ? ' - ' + event.end_date.getDate() : ''}

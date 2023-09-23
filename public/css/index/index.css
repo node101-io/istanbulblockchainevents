@@ -474,8 +474,8 @@
 }
 
 .about-the-event-image {
-  width: 90%;
-  min-width: 90%;
+  width: 400px;
+  min-width: 400px;
   height: auto;
   min-height: auto;
   align-self: flex-end;
@@ -520,8 +520,8 @@
 .about-the-event-mobile-version .about-the-event-image {
   width: 267px;
   min-width: 267px;
-  height: fit-content;
-  min-height: fit-content;
+  height: auto;
+  min-height: auto;
   margin-bottom: 10px;
 }
 
