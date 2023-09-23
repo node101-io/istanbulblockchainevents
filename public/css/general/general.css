@@ -76,6 +76,7 @@ input[type=number] {
   --sidebar-divider-color: rgba(119, 119, 119, 1);
   --footer-email-button-text-color: rgba(121,122,122,1);
   --footer-divider-color: rgba(42,42,42,1);
+  --placeholder-color: rgba(248, 248, 248, 0.6);
 
   --node101-logo-width: 93px;
   --node101-logo-height: 38px;
@@ -105,7 +106,8 @@ input[type=number] {
   --footer-subscribe-button-width: 146px;
   --footer-subscribe-button-height: 40px;
   --footer-subscribe-button-margin-top: 20px;
-
+  --general-event-loading-icon-wrapper-height: 100px;
+  --general-venue-loading-icon-wrapper-height: 100px;
 }
 
 .display-none {

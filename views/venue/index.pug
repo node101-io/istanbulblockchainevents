@@ -1,0 +1,104 @@
+extends ../partials/header
+block main
+  input.display-none#venues-json(value=JSON.stringify(venues))
+  .all-content
+    .venue-accom-top-section
+      p Istanbul
+      p Venue &amp; Accommodation List
+    .venue-accom-bottom-content
+      .sidebar
+        .bar
+          .bar-content
+            p Search Venue
+            svg(width='24' height='25' viewbox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M21.7502 21.1894L16.0861 15.5254C17.4471 13.8914 18.1258 11.7956 17.981 9.67394C17.8362 7.55231 16.8789 5.56819 15.3085 4.13433C13.738 2.70048 11.6752 1.92728 9.54918 1.9756C7.42316 2.02391 5.39761 2.89001 3.89389 4.39372C2.39018 5.89743 1.52408 7.92299 1.47577 10.049C1.42746 12.175 2.20065 14.2378 3.63451 15.8083C5.06836 17.3788 7.05248 18.336 9.17412 18.4808C11.2958 18.6257 13.3915 17.947 15.0255 16.5859L20.6896 22.25L21.7502 21.1894ZM3.00018 10.25C3.00018 8.91498 3.39606 7.60994 4.13776 6.49991C4.87946 5.38987 5.93366 4.52471 7.16706 4.01382C8.40047 3.50293 9.75767 3.36926 11.067 3.62971C12.3764 3.89016 13.5791 4.53303 14.5231 5.47703C15.4672 6.42104 16.11 7.62377 16.3705 8.93315C16.6309 10.2425 16.4973 11.5997 15.9864 12.8331C15.4755 14.0665 14.6103 15.1207 13.5003 15.8624C12.3902 16.6041 11.0852 17 9.75018 17C7.96058 16.998 6.24484 16.2862 4.9794 15.0208C3.71396 13.7553 3.00216 12.0396 3.00018 10.25Z' fill='#68F29E')
+        .bar
+          .bar-content-bigger
+            p Capacity
+            svg.list-tray-icon(viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
+        .bar-extension-capacity-selection
+          mixin checkboxes(title)
+            strong= title
+            each range in ["-100", "101-200", "201-400", "401-600", "601-1000", "1001-1500", "1501-2000", "2000+"]
+              div
+                svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                  rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
+                span #{range}
+          .bar-extension-checkboxes
+            +checkboxes('Seated')
+            +checkboxes('Standing')
+        .bar
+          .bar-content-bigger
+            p Location
+            svg(width='16' height='17' viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
+        .bar-extension-location-selection
+          .bar-extension-checkboxes
+            each district in DISTRICTS
+              div(data-checked="false")
+                svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
+                  rect(x='2' y='2' width='8' height='8' rx='1' fill='#68F29E')
+                span #{district}
+        .apply-filters-button
+          span Apply Filters
+        .venue-accom-filters-bottom-info
+          .venue-accom-filters-bottom-info-text
+            p Do you need help organizing an event? Reach us!
+            .outer-links-with-arrow
+              a.outer-link-green(href='#') node101 - Events
+              svg.link-arrow(viewbox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg')
+                path(d='M1.18558 11.7303L11.5774 3.76714M1.70387 0.592325L10.0597 1.78652L12.9686 5.58272L12.1172 14.1816' stroke='#68F29E')
+        .submit-venue-button
+          svg(width='11' height='12' viewbox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(d='M6.1875 5.3125V0.5H4.8125V5.3125H0V6.6875H4.8125V11.5H6.1875V6.6875H11V5.3125H6.1875Z' fill='#68F29E')
+          span                                 Submit Venue
+      .main-content
+        each venue in venues 
+          .venue-bar.clicked
+            .bar-information 
+              .venue-title #{venue.name}
+              if venue.seated_capacity
+                .venue-seated-capacity
+                  span.venue-bar-gray-text Seated
+                  span #{venue.seated_capacity}
+              if venue.standing_capacity
+                .venue-standing-capacity
+                  span.venue-bar-gray-text Standing
+                  span #{venue.standing_capacity}
+            .about-the-venue-mobile-version
+              img.about-the-venue-iamge(src= venue.image alt='')
+              p #{venue.description}
+              a.link-to-venue-button(href= venue.social_media_accounts.web target='_blank')
+                span Website
+              .venue-contact-info
+                span.venue-phone-number #{venue.contact_number}
+                span.venue-email-address #{venue.contact_email}
+              .venue-location
+                svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                p #{venue.address}
+            .about-the-venue 
+              .about-the-venue-section-left
+                h3 About the Event
+                p #{venue.description}
+                a.link-to-venue-button(href= venue.social_media_accounts.web target='_blank')
+                  span Website
+                .venue-contact-info
+                  span.venue-phone-number #{venue.contact_number}
+                  span.venue-email-address #{venue.contact_email}
+              .about-the-venue-section-right
+                img.about-the-venue-image(src= venue.image alt='')
+                .venue-location 
+                  svg.location-icon(width='9' height='24' viewbox='0 0 9 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+                    path(d='M3.81322 17.6047C0.596992 12.9421 0 12.4636 0 10.75C0 8.40278 1.90278 6.5 4.25 6.5C6.59722 6.5 8.5 8.40278 8.5 10.75C8.5 12.4636 7.90301 12.9421 4.68678 17.6047C4.47571 17.9096 4.02426 17.9095 3.81322 17.6047ZM4.25 12.5208C5.22801 12.5208 6.02083 11.728 6.02083 10.75C6.02083 9.77199 5.22801 8.97917 4.25 8.97917C3.27199 8.97917 2.47917 9.77199 2.47917 10.75C2.47917 11.728 3.27199 12.5208 4.25 12.5208Z' fill='#999999')
+                  p #{venue.address}
+    .general-venues-loading-icon-wrapper#venues-loading-icon
+      svg.general-venues-loading-icon(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512')
+        path(d='M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z')
