@@ -48,4 +48,16 @@ window.addEventListener('load', () => {
       loadNewEvents();
     }  
   });
+
+  document.addEventListener('click', event => {
+    if (event.target.closest('.event-bar')) {
+      const eventBar = event.target.closest('.event-bar');
+      const oldOpenEventBar = document.querySelector('.event-bar-open');
+
+      if (oldOpenEventBar && oldOpenEventBar != eventBar)
+        oldOpenEventBar.classList.remove('event-bar-open');
+
+      eventBar.classList.add('event-bar-open');
+    }
+  })
 });

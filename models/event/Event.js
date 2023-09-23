@@ -176,7 +176,11 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
 
   const filters = {
     is_completed: true,
-    is_deleted: false
+    is_deleted: false,
+    $or: [
+      { start_date: { $gte: new Date() } },
+      { end_date: { $gte: new Date() } }
+    ]
   };
 
   const limit = data.limit && !isNaN(parseInt(data.limit)) && parseInt(data.limit) > 0 && parseInt(data.limit) < MAX_DOCUMENT_COUNT_PER_QUERY ? parseInt(data.limit) : DEFAULT_DOCUMENT_COUNT_PER_QUERY;
@@ -211,7 +215,7 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
     Event
       .find(filters)
       .sort({
-        start_date: -1,
+        start_date: 1,
         end_date: -1,
         name: 1
       })
@@ -238,7 +242,7 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
     Event
       .find(filters)
       .sort({
-        start_date: -1,
+        start_date: 1,
         end_date: -1,
         name: 1
       })

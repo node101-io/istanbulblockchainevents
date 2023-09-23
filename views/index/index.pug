@@ -3,11 +3,11 @@ block main
   input.display-none#events-json(value=JSON.stringify(events))
   input.display-none#slider-json(value=JSON.stringify(slider))
   .all-content
-    //.mobile-filter-extended-window
+    //- .mobile-filter-extended-window
       .filter-window-header
         span Filter
-        svg(width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg")
-          path(d="M23 2.21875L21.0312 0.25L11.75 9.53125L2.46875 0.25L0.5 2.21875L9.78125 11.5L0.5 20.7812L2.46875 22.75L11.75 13.4687L21.0312 22.75L23 20.7812L13.7187 11.5L23 2.21875Z" fill="#F4F4F4")
+        svg(width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg')
+          path(d='M23 2.21875L21.0312 0.25L11.75 9.53125L2.46875 0.25L0.5 2.21875L9.78125 11.5L0.5 20.7812L2.46875 22.75L11.75 13.4687L21.0312 22.75L23 20.7812L13.7187 11.5L23 2.21875Z' fill='#F4F4F4')
       .mobile-filter-bars-container
         .mobile-filter-date-bar
           .mobile-filter-bar-content
@@ -77,7 +77,7 @@ block main
           span.gradient-text node101.
       .top-intro-right
         each slide in slider
-          img.top-right-event-image(src=slide.logo loading="lazy" alt='')
+          img.top-right-event-image(src=slide.logo loading='lazy' alt='')
           p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
           .box-bottom-info
             - let startDate = slide.start_date;
@@ -121,7 +121,7 @@ block main
       .sidebar
         form.bar#search-bar
           .bar-content
-            input(type="text" placeholder = "Search")
+            input(type='text' placeholder = 'Search')
             svg.search-icon(viewbox='0 0 24 25' xmlns='http://www.w3.org/2000/svg')
               path(d='M21.75 21.1895L16.0859 15.5254C17.447 13.8914 18.1257 11.7956 17.9808 9.67399C17.836 7.55236 16.8788 5.56824 15.3083 4.13438C13.7378 2.70053 11.675 1.92733 9.549 1.97565C7.42298 2.02396 5.39742 2.89006 3.89371 4.39377C2.39 5.89748 1.5239 7.92304 1.47558 10.0491C1.42727 12.1751 2.20047 14.2379 3.63432 15.8084C5.06818 17.3788 7.0523 18.336 9.17393 18.4809C11.2956 18.6257 13.3914 17.947 15.0253 16.586L20.6894 22.2501L21.75 21.1895ZM2.99999 10.2501C2.99999 8.91503 3.39588 7.60999 4.13757 6.49996C4.87927 5.38992 5.93348 4.52476 7.16688 4.01387C8.40028 3.50298 9.75748 3.3693 11.0669 3.62975C12.3762 3.8902 13.579 4.53308 14.523 5.47708C15.467 6.42109 16.1098 7.62382 16.3703 8.9332C16.6307 10.2426 16.4971 11.5998 15.9862 12.8332C15.4753 14.0666 14.6101 15.1208 13.5001 15.8625C12.3901 16.6042 11.085 17.0001 9.74999 17.0001C7.96039 16.9981 6.24466 16.2863 4.97922 15.0208C3.71378 13.7554 3.00198 12.0397 2.99999 10.2501Z' fill='#EEF6FC')
         .bar
@@ -133,7 +133,7 @@ block main
           .bar-extension-checkboxes
             strong All Dates
             each month in FULL_MONTHS
-              div(data-checked="false")
+              div(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -149,7 +149,7 @@ block main
           .bar-extension-checkboxes
             strong All Types
             each type in EVENT_TYPES
-              div(data-checked="false")
+              div(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -159,8 +159,10 @@ block main
         .submit-button
           span Submit Event
       .main-content
-        each event in events 
-          .event-bar
+        each event, index in events
+          if index > 0 && event.start_date.getMonth() !== events[index - 1].start_date.getMonth()
+            span.month-separator= FULL_MONTHS[event.start_date.getMonth()]
+          .event-bar.event-bar-open
             .bar-information
               .event-title(class=event.is_side ? 'side-events' : 'main-events')= event.name
               .event-date #{SHORT_MONTHS[event.start_date.getMonth()]} #{event.start_date.getDate()}#{event.end_date && event.start_date.getMonth() === event.end_date.getMonth() ? ' - ' + event.end_date.getDate() : ''}
@@ -179,12 +181,11 @@ block main
                 p #{event.location}
             .about-the-event
               .about-the-event-section-left
-                h3 About the Event 
                 p #{event.description}
                 .about-the-event-buttons
                   .link-to-event-button(class=event.is_side ? 'side-link-to-event-button' : 'main-link-to-event-button')
                     span Link to Event
-                  .add-to-calendar-button.calendar-button
+                  .add-to-calendar-button.calendar-button(class=event.is_side ? 'side-add-to-calendar-button' : 'main-add-to-calendar-button')
                     span Add to Calendar
               .about-the-event-section-right
                 img.about-the-event-image(src= event.logo alt='')

@@ -89,9 +89,13 @@ input[type=number] {
   --scroll-button-height: 8px;
 
   --bar-border-radius: 10px;
+  --bar-height: 55px;
   --bar-width: 200px;
   --bar-padding: 10px 20px;
   --submit-button-padding: 16px 40px;
+
+  --event-bar-height: 70px;
+  --event-bar-horizontal-padding: 30px;
 
   --header-height: 100px;
   --header-padding: 150px;
