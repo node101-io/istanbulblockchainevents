@@ -1,3 +1,8 @@
+const FULL_MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 const SHORT_MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -11,32 +16,45 @@ const EVENT_TYPES = [
 function createEvent(event) {
   const mainContent = document.querySelector('.main-content');
 
+  const lastEvent = mainContent.lastElementChild;
+  const eventDateContent = lastEvent.querySelector('.event-date').textContent;
+  const monthFromLastEvent = eventDateContent.split(' ')[0];
+
+  let currentEventDate = new Date(event.start_date);
+
+  if (monthFromLastEvent && SHORT_MONTHS[currentEventDate.getMonth()] !== monthFromLastEvent) {
+    const monthSeparator = document.createElement('span');
+    monthSeparator.className = 'month-separator';
+    monthSeparator.innerText = FULL_MONTHS[currentEventDate.getMonth()];
+    mainContent.appendChild(monthSeparator);
+  }
+
   const eventBar = document.createElement('div');
   eventBar.classList.add('event-bar');
+  eventBar.dataset.startDate = event.start_date;
 
   const barInformation = document.createElement('div');
   barInformation.classList.add('bar-information');
 
   const eventTitle = document.createElement('div');
-  eventTitle.classList.add('event-title');
-  eventTitle.classList.add(event.is_side ? 'side-events' : 'main-events');
+  eventTitle.classList.add('event-title', event.is_side ? 'side-events' : 'main-events');
   eventTitle.innerText = event.name;
+  barInformation.appendChild(eventTitle);
 
   const eventDate = document.createElement('div');
   eventDate.classList.add('event-date');
-  
-  let startDate = typeof event.start_date === 'string' ? new Date(event.start_date) : event.start_date;
-  let endDate = event.end_date ? (typeof event.end_date === 'string' ? new Date(event.end_date) : event.end_date) : null;
-  
+
+  let startDate = new Date(event.start_date);
+  let endDate = event.end_date ? new Date(event.end_date) : null;
   const endDateStr = endDate && startDate.getMonth() === endDate.getMonth() ? ' - ' + endDate.getDate() : '';
-  
-  eventDate.innerText = `${SHORT_MONTHS[startDate.getMonth()]} ${startDate.getDate()}${endDateStr}`;  
+  eventDate.innerText = `${SHORT_MONTHS[startDate.getMonth()]} ${startDate.getDate()}${endDateStr}`;
+  barInformation.appendChild(eventDate);
 
   const eventType = document.createElement('div');
   eventType.classList.add('event-type');
   eventType.innerText = EVENT_TYPES[['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(event.event_type)];
+  barInformation.appendChild(eventType);
 
-  barInformation.append(eventTitle, eventDate, eventType);
   eventBar.appendChild(barInformation);
 
   const aboutEventMobile = document.createElement('div');
@@ -79,10 +97,8 @@ function createEvent(event) {
   const aboutEvent = document.createElement('div');
   aboutEvent.classList.add('about-the-event');
 
-  const eventImage = document.createElement('img');
-  eventImage.classList.add('about-the-event-image');
-  eventImage.src = event.logo;
-  eventImage.alt = '';
+  const aboutTheEventSectionLeft = document.createElement('div');
+  aboutTheEventSectionLeft.classList.add('about-the-event-section-left');
 
   const eventDescription = document.createElement('p');
   eventDescription.innerText = event.description;
@@ -92,14 +108,27 @@ function createEvent(event) {
 
   const linkButton = document.createElement('div');
   linkButton.classList.add('link-to-event-button');
+  const linkButtonType = event.is_side ? 'side-link-to-event-button' : 'main-link-to-event-button';
+  linkButton.classList.add(linkButtonType);
   linkButton.innerText = 'Link to Event';
 
   const calendarButton = document.createElement('div');
   calendarButton.classList.add('add-to-calendar-button');
   calendarButton.classList.add('calendar-button');
+  const calendarButtonType = event.is_side ? 'side-add-to-calendar-button' : 'main-add-to-calendar-button';
+  calendarButton.classList.add(calendarButtonType);
   calendarButton.innerText = 'Add to Calendar';
 
   buttons.append(linkButton, calendarButton);
+  aboutTheEventSectionLeft.append(eventDescription, buttons);
+
+  const aboutTheEventSectionRight = document.createElement('div');
+  aboutTheEventSectionRight.classList.add('about-the-event-section-right');
+
+  const eventImage = document.createElement('img');
+  eventImage.classList.add('about-the-event-image');
+  eventImage.src = event.logo;
+  eventImage.alt = '';
 
   const eventLocation = document.createElement('div');
   eventLocation.classList.add('event-location');
@@ -110,7 +139,9 @@ function createEvent(event) {
     <p>${event.location}</p>
   `;
 
-  aboutEvent.append(eventImage, eventDescription, buttons, eventLocation);
+  aboutTheEventSectionRight.append(eventImage, eventLocation);
+
+  aboutEvent.append(aboutTheEventSectionLeft, aboutTheEventSectionRight);
   eventBar.appendChild(aboutEvent);
 
   mainContent.appendChild(eventBar);
