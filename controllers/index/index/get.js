@@ -1,5 +1,5 @@
 const EVENT_COUNT = 7;
-const SLIDER_EVENT_COUNT = 4;
+const SLIDER_EVENT_COUNT = 5;
 
 const Event = require('../../../models/event/Event');
 

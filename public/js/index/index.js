@@ -8,11 +8,9 @@ function loadNewEvents() {
   isEventsLoading = true;
 
   serverRequest('/filter', 'POST', {
-    page: eventsPageCount
+    page: eventsPageCount++
   }, res => {
     if (!res.success || res.error) return alert(res.error);
-
-    eventsPageCount++;
 
     let isLastEventInArray = true;
     const lastTenEvents = res.events.slice(events.length - 10);

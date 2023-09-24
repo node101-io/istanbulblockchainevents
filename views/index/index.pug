@@ -76,38 +76,20 @@ block main
           span Istanbul Blockchain Events is a public good project that allows you to find all crypto events held in Istanbul. This project is fully funded by 
           span.gradient-text node101.
       .top-intro-right
-        each slide in slider
-          img.top-right-event-image(src=slide.logo loading='lazy' alt='')
-          p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
-          .box-bottom-info
-            - let startDate = slide.start_date;
-            - let endDate = slide.end_date;
-            - let formattedDate = '';
-            - let startDay = startDate.getDate(), endDay = (endDate) ? endDate.getDate() : null;
-            - let startMonth = FULL_MONTHS[startDate.getMonth()], endMonth = (endDate) ? FULL_MONTHS[endDate.getMonth()] : null;
-            - let startYear = startDate.getFullYear(), endYear = (endDate) ? endDate.getFullYear() : null;
-
-            if (!endDate || startDate.getTime() === endDate.getTime())
-              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)}, ${startYear}`;
-            else if (startDate.getMonth() === endDate.getMonth() && startYear === endYear)
-              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)} - ${endDay}${getSuffix(endDay)}, ${startYear}`;
-            else if (startYear === endYear)
-              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)} - ${endMonth} ${endDay}${getSuffix(endDay)}, ${startYear}`;
+        .top-intro-slider-wrapper
+          each slide in slider
+            .top-intro-each-slide-wrapper
+              img.top-right-event-image(src=slide.logo loading='lazy' alt=slide.name)
+              p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
+              .box-bottom-info
+                p.event-info= slide.slider_formatted_date
+                p.event-info= EVENT_TYPES.find(each => each.toLocaleLowerCase().split('_').join('') == slide.event_type.split('-').join(''))
+        .pages-scroll-buttons
+          each slide, i in slider
+            if i == 0
+              .pages-scroll-buttons-active
             else
-              - formattedDate = `${startMonth} ${startDay}${getSuffix(startDay)}, ${startYear} - ${endMonth} ${endDay}${getSuffix(endDay)}, ${endYear}`;
-
-            p.event-info= formattedDate
-            p.event-info= EVENT_TYPES[ ['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(slide.event_type) ]
-          
-          .pages-scroll-buttons
-            each slide, i in slider
-              if i == 0
-                .pages-scroll-buttons-active
-              else
-                .pages-scroll-buttons-inactive
-      - function getSuffix(date)
-        - let lastDigit = date % 10, lastTwoDigits = date % 100;
-        - return (lastTwoDigits >= 11 && lastTwoDigits <= 13) ? 'th' : ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th'][lastDigit];
+              .pages-scroll-buttons-inactive
     .bottom-content
       .mobile-search-filter-section
         .mobile-search-bar
@@ -129,11 +111,11 @@ block main
             p Date
             svg.list-tray-icon(viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
-        .bar-extension-date-selection
+        .bar-extension-date-selection#date-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
             strong All Dates
             each month in FULL_MONTHS
-              div(data-checked='false')
+              div.each-bar-extension-checkbox(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -145,11 +127,11 @@ block main
             p Type
             svg.list-tray-icon(viewbox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
-        .bar-extension-type-selection
+        .bar-extension-type-selection#type-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
             strong All Types
             each type in EVENT_TYPES
-              div(data-checked='false')
+              div.each-bar-extension-checkbox(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -165,8 +147,8 @@ block main
           .event-bar
             .bar-information
               .event-title(class=event.is_side ? 'side-events' : 'main-events')= event.name
-              .event-date #{SHORT_MONTHS[event.start_date.getMonth()]} #{event.start_date.getDate()}#{event.end_date && event.start_date.getMonth() === event.end_date.getMonth() ? ' - ' + event.end_date.getDate() : ''}
-              .event-type= EVENT_TYPES[ ['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(event.event_type) ]
+              .event-date= event.formatted_date
+              .event-type= EVENT_TYPES.find(each => each.toLocaleLowerCase() == event.event_type)
             .about-the-event-mobile-version
               img.about-the-event-image(src= event.logo alt='')
               p #{event.description}

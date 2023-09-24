@@ -1,4 +1,4 @@
-const EVENT_COUNT = 5;
+const EVENT_COUNT = 7;
 
 const Event = require('../../../models/event/Event');
 
