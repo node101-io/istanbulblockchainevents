@@ -13,6 +13,7 @@ module.exports = (req, res) => {
         image: '/img/meta/header.png',
         twitter: true
       }
-    }
+    },
+    header: 'guide'
   });
 };

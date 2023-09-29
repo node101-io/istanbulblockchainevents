@@ -70,7 +70,10 @@
 }
 
 .header-page-name:hover {
-  text-shadow: 0px 0px 4px #402DEB;
+  text-shadow: 0px 0px 5px var(--side-events-color);
+}
+.header-page-name-selected {
+  color: var(--side-events-color) !important;
 }
 
 .header-hamburger-menu-icon {

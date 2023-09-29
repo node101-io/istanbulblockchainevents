@@ -42,8 +42,8 @@ block content
               stop(offset='0.357851' stop-color='#68F29E')
               stop(offset='0.874175' stop-color='#5B7CFF')
       .header-nav
-        a.header-page-name(href='/guide') Istanbul Guide
-        a.header-page-name(href='/venue') Venue &amp; Accommodation
+        a.header-page-name(class=(header && header == 'guide' ? 'header-page-name-selected' : '') href='/guide') Istanbul Guide
+        a.header-page-name(class=(header && header == 'venue' ? 'header-page-name-selected' : '') href='/venue') Venue &amp; Accommodation
         svg.header-hamburger-menu-icon(viewbox='0 0 29 26' fill='none' xmlns='http://www.w3.org/2000/svg')
             rect(x='0.5' width='28' height='4' fill='#F4F4F4')
             rect(x='0.5' y='22' width='28' height='4' fill='#F4F4F4')

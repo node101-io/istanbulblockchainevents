@@ -26,6 +26,7 @@ module.exports = (req, res) => {
             twitter: true
           }
         },
+        header: 'venue',
         url: '/venue',
         count,
         venues: data.venues,
