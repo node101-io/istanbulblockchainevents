@@ -85,8 +85,8 @@ input[type=number] {
 
   --event-type-date-fontsize: 18px;
 
-  --scroll-button-width: 8px;
-  --scroll-button-height: 8px;
+  --scroll-button-width: 10px;
+  --scroll-button-height: 10px;
 
   --bar-border-radius: 10px;
   --bar-height: 55px;

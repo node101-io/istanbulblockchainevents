@@ -30,31 +30,14 @@ block main
         .mobile-filter-type-bar
         .mobile-filter-type-bar-extended
     .top-intro
-      //- .top-slider-section-mobile
-      //-   .top-slider-element-mobile
-      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-      //-     p.event-name ETH Istanbul Devconnect
-      //-     .box-bottom-info
-      //-       p.event-info March 16th, 2023
-      //-       p.event-info Conference
-      //-   .top-slider-element-mobile
-      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-      //-     p.event-name ETH Istanbul Devconnect
-      //-     .box-bottom-info
-      //-       p.event-info March 16th, 2023
-      //-       p.event-info Conference
-      //-   .top-slider-element-mobile
-      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-      //-     p.event-name ETH Istanbul Devconnect
-      //-     .box-bottom-info
-      //-       p.event-info March 16th, 2023
-      //-       p.event-info Conference
-      //-   .top-slider-element-mobile
-      //-     img.top-slider-mobile-event-image(src=`${URL}/img/main-page-mobile-slider-image.webp` alt='')
-      //-     p.event-name ETH Istanbul Devconnect
-      //-     .box-bottom-info
-      //-       p.event-info March 16th, 2023
-      //-       p.event-info Conference
+      .top-slider-section-mobile
+        each slide in slider
+          .top-slider-element-mobile
+            img.top-slider-mobile-event-image(src=slide.logo alt=slide.name)
+            p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
+            .box-bottom-info
+              p.event-info= slide.slider_formatted_date
+              p.event-info= EVENT_TYPES.find(each => each.toLocaleLowerCase().split('_').join('') == slide.event_type.split('-').join(''))
       .top-intro-left
         h1
           .top-intro-left-upper-title
@@ -87,9 +70,9 @@ block main
         .pages-scroll-buttons
           each slide, i in slider
             if i == 0
-              .pages-scroll-buttons-active
+              .pages-each-scroll-button.pages-scroll-buttons-active(data-index=i)
             else
-              .pages-scroll-buttons-inactive
+              .pages-each-scroll-button(data-index=i)
     .bottom-content
       .mobile-search-filter-section
         .mobile-search-bar
