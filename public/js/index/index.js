@@ -9,6 +9,22 @@ let lastTimeOnSlide = 0;
 let onSlide = false;
 let slider = [];
 
+const sliderObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      currentSlide = Number(entry.target.getAttribute('data-index'));
+      const inactiveScrollButton = document.querySelectorAll('.pages-each-scroll-button');
+      const activeScrollButton = document.querySelector('.pages-scroll-buttons-active');
+
+      if (activeScrollButton) {
+        activeScrollButton.classList.remove('pages-scroll-buttons-active');
+      }
+
+      inactiveScrollButton[currentSlide].classList.add('pages-scroll-buttons-active');
+    }
+  });
+}, { threshold: 0.5 });
+
 function changeSlide() {
   const sliderWrapper = document.querySelector('.top-intro-slider-wrapper');
   const mobileSliderWrapper = document.querySelector('.top-slider-section-mobile');
@@ -24,9 +40,6 @@ function changeSlide() {
       mobileSliderWrapper.scrollTo({
         left: mobileSliderWrapper.clientWidth * currentSlide, behavior: 'smooth'
       });
-
-      document.querySelector('.pages-scroll-buttons-active').classList.remove('pages-scroll-buttons-active');
-      document.querySelector('.pages-scroll-buttons').children[currentSlide].classList.add('pages-scroll-buttons-active');
     }
     changeSlide();
   }, ((new Date).getTime() - lastTimeOnSlide) >= SLIDE_CHANGE_DURATION_IN_MS ? SLIDE_CHANGE_DURATION_IN_MS : (SLIDE_CHANGE_DURATION_IN_MS - ((new Date).getTime() - lastTimeOnSlide)))
@@ -71,16 +84,29 @@ window.addEventListener('load', () => {
   const allFooterHeight = document.querySelector('footer.all-footer').offsetHeight;
 
   const sliderWrapper = document.querySelector('.top-intro-slider-wrapper');
+  const sliderWrappers = document.querySelectorAll('.top-intro-each-slide-wrapper');
   const mobileSliderWrapper = document.querySelector('.top-slider-section-mobile');
 
-  allWrapper.addEventListener('scroll', () => {
-    if (
-      !isEventEndReached &&
-      !isEventsLoading &&
-      (allWrapper.scrollHeight - (allWrapper.scrollTop + window.document.body.offsetHeight + allFooterHeight)) < NEW_EVENT_LOAD_SCROLL_DISTANCE
-    ) {
-      loadNewEvents();
-    }  
+  sliderWrappers.forEach(each => {
+    sliderObserver.observe(each);
+  });
+
+  document.addEventListener('mouseover', event => {
+    if (event.target.closest('.top-intro-each-slide-wrapper')) {
+      onSlide = true;
+    } else if (onSlide) {
+      onSlide = false;
+    }
+  });
+
+  document.addEventListener('touchstart', event => {
+    if (event.target.closest('.top-intro-each-slide-wrapper')) {
+      onSlide = true;
+    }
+  });
+
+  document.addEventListener('touchend', _ => {
+    onSlide = false;
   });
 
   document.addEventListener('click', event => {
@@ -105,21 +131,13 @@ window.addEventListener('load', () => {
     }
   });
 
-  document.addEventListener('mouseover', event => {
-    if (event.target.closest('.top-intro-each-slide-wrapperr')) {
-      onSlide = true;
-    } else if (onSlide) {
-      onSlide = false;
-    }
-  });
-
-  document.addEventListener('touchstart', event => {
-    if (ancestorWithClassName(event.target, 'each-slide-wrapper')) {
-      onSlide = true;
-    }
-  });
-
-  document.addEventListener('touchend', _ => {
-    onSlide = false;
+  allWrapper.addEventListener('scroll', () => {
+    if (
+      !isEventEndReached &&
+      !isEventsLoading &&
+      (allWrapper.scrollHeight - (allWrapper.scrollTop + window.document.body.offsetHeight + allFooterHeight)) < NEW_EVENT_LOAD_SCROLL_DISTANCE
+    ) {
+      loadNewEvents();
+    }  
   });
 });

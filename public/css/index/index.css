@@ -119,7 +119,14 @@
   min-height: fit-content;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.top-intro-slider-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .top-intro-each-slide-wrapper {
@@ -130,6 +137,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .top-right-event-image {

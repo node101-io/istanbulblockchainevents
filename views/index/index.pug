@@ -60,8 +60,8 @@ block main
           span.gradient-text node101.
       .top-intro-right
         .top-intro-slider-wrapper
-          each slide in slider
-            .top-intro-each-slide-wrapper
+          each slide, i in slider
+            .top-intro-each-slide-wrapper(data-index=i)
               img.top-right-event-image(src=slide.logo loading='lazy' alt=slide.name)
               p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
               .box-bottom-info
