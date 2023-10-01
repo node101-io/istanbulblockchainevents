@@ -96,9 +96,9 @@ block main
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
         .bar-extension-date-selection#date-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
-            strong All Dates
+            strong.select-all-dates All Dates
             each month in FULL_MONTHS
-              div.each-bar-extension-checkbox(data-checked='false')
+              div.each-bar-extension-checkbox#date-checkbox(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -112,9 +112,9 @@ block main
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
         .bar-extension-type-selection#type-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
-            strong All Types
+            strong.select-all-types All Types
             each type in EVENT_TYPES
-              div.each-bar-extension-checkbox(data-checked='false')
+              div.each-bar-extension-checkbox#type-checkbox(data-checked='false')
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')

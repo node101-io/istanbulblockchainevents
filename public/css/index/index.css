@@ -212,6 +212,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .bar-extension-date-selection {
@@ -234,10 +235,14 @@
   align-items: flex-start;
 }
 
-.each-bar-extension-checkbox {
+.each-bar-extension-checkbox,
+.select-all-dates,
+.select-all-types {
   cursor: pointer;
 }
-.each-bar-extension-checkbox:hover {
+.each-bar-extension-checkbox:hover,
+.select-all-dates:hover,
+.select-all-types:hover {
   color: var(--main-events-color)
 }
 
