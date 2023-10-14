@@ -178,8 +178,8 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
     is_completed: true,
     is_deleted: false,
     $or: [
-      { start_date: { $gte: new Date() } },
-      { end_date: { $gte: new Date() } }
+      { start_date: { $gte: new Date('2023-12-1') } },
+      { end_date: { $lte: new Date() } }
     ]
   };
 
