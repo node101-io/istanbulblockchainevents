@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
   
   if (!language || !ALLOWED_LANGUAGE_VALUES.includes(language))
     language = DEFAULT_LANGUAGE;
-
+  
   const EVENT_TYPES = [
     res.__('Summit'),
     res.__('Party'),
@@ -20,8 +20,8 @@ module.exports = (req, res, next) => {
     res.__('Workshop'),
     res.__('Dinner'),
     res.__('Brunch'),
-    res.__('Co-living'),
-    res.__('Co-work'),
+    res.__('Co-Living'),
+    res.__('Co-Work'),
     res.__('NFTs'),
     res.__('Tour'),
     res.__('Other')
@@ -55,23 +55,23 @@ module.exports = (req, res, next) => {
     res.__('Dec')
   ];
 
-  const DISTRICTS = [
+  const DISTRICT_LIST = [
     res.__('Historical Peninsula (Fatih)'),
     res.__('Historical European District (Beyoğlu)'),
+    res.__('Golden Horn (Haliç)'),
     res.__('Şişli'),
     res.__('Beşiktaş'),
     res.__('Sarıyer'),
-    res.__('Golden Horn (Haliç)'),
     res.__('Kadıköy'),
     res.__('Üsküdar'),
     res.__('Beykoz'),
     res.__('Adalar')
-  ]
+  ];
 
   res.locals.EVENT_TYPES = EVENT_TYPES;
   res.locals.FULL_MONTHS = FULL_MONTHS;
   res.locals.SHORT_MONTHS = SHORT_MONTHS;
-  res.locals.DISTRICTS = DISTRICTS;
+  res.locals.DISTRICT_LIST = DISTRICT_LIST;
   res.locals.query_lang = query_language;
   res.locals.lang = language;
 

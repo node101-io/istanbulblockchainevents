@@ -194,6 +194,10 @@
   height: 20px;
 }
 
+.footer-social-media-logos a svg:hover {
+  filter: drop-shadow(0px 0px 5px var(--side-events-color));
+}
+
 .footer-page-link {
   color: var(--top-intro-paragraph-color);
   text-align: center;
@@ -201,6 +205,10 @@
   font-weight: 400;
   text-decoration: none;
   margin-right: 25px;
+}
+
+.footer-page-link:hover {
+  color: var(--main-events-color);
 }
 
 .footer-link-active {
