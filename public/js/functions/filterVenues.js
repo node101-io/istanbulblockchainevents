@@ -2,11 +2,12 @@ window.addEventListener('load', () => {
   const venuesSection = document.querySelector("body .all-content .venue-accom-bottom-content .main-content");
   const searchBar = document.forms['search-bar'].querySelector('input');
 
-  searchBar.addEventListener('keyup', (e) => {
-
+  searchBar.addEventListener('keydown', e => {
+    if (e.key == 'Enter' || e.key == 'Tab')
+      return e.preventDefault();
     const term = e.target.value.toLowerCase();
     const venues = venuesSection.getElementsByClassName("venue-bar");
-
+    
     Array.from(venues).forEach(venue => {
 
       const venueName = venue.querySelector(".venue-title");
