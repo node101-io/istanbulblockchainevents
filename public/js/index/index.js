@@ -9,6 +9,8 @@ let lastTimeOnSlide = 0;
 let onSlide = false;
 let slider = [];
 
+let filters = {};
+
 const sliderObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -51,19 +53,23 @@ function loadNewEvents() {
   isEventsLoading = true;
 
   serverRequest('/filter', 'POST', {
-    page: eventsPageCount++
+    page: eventsPageCount,
+    ...filters
   }, res => {
     if (!res.success || res.error) return alert(res.error);
 
+    eventsPageCount++;
+
     let isLastEventInArray = true;
-    const lastTenEvents = res.events.slice(events.length - 10);
+    const lastOneEvent = res.events.slice(events.length - 5);
 
     for (let i = 0; i < res.events.length; i++)
-      if (!isLastEventInArray || !lastTenEvents.find(any => any._id.toString() == res.events[i]._id.toString())) {
+      if (!isLastEventInArray || !lastOneEvent.find(any => any._id.toString() == res.events[i]._id.toString())) {
         isLastEventInArray = false;
         createEvent(res.events[i])
       }
-    
+
+    isEventEndReached = false;
     if (!res.events.length) {
       isEventEndReached = true;
       if (document.getElementById('events-loading-icon'))
@@ -110,6 +116,109 @@ window.addEventListener('load', () => {
   });
 
   document.addEventListener('click', event => {
+    if (event.target.closest('#date-checkbox')) {
+      const dateCheckbox = document.querySelectorAll('#date-checkbox');
+      const dateAfter = [];
+      const dateBefore = [];
+  
+      const currentMonth = new Date().getMonth();
+      const currentYear = new Date().getFullYear();
+  
+      for (let i = 0; i < dateCheckbox.length; i++) {
+        if (dateCheckbox[i].getAttribute('data-checked') == 'true') {
+          const month = parseInt(dateCheckbox[i].getAttribute('data-month-index'), 10);
+  
+          const year = month <= currentMonth ? currentYear + 1 : currentYear;
+  
+          const AfterDate = new Date(year, month, 1);
+          dateAfter.push(AfterDate);
+  
+          const beforeDate = new Date(year, month + 1, 1);
+          dateBefore.push(beforeDate);
+        };
+      };
+  
+      eventsPageCount = 0;
+
+      document.querySelector('.main-content').innerHTML = '';
+  
+      if (dateAfter.length) {
+        filters = {
+          date_after: dateAfter,
+          date_before: dateBefore
+        };
+      } else {
+          filters = {};
+      };
+  
+      loadNewEvents(filters);
+    };
+
+    if (event.target.closest('.unselect-all-dates')) {
+      const selectedDateCheckboxes = document.querySelectorAll('#date-checkbox[data-checked="true"]');
+
+      if (selectedDateCheckboxes.length) {
+        for (let i = 0; i < selectedDateCheckboxes.length; i++) {
+          selectedDateCheckboxes[i].setAttribute('data-checked', 'false');
+          selectedDateCheckboxes[i].querySelector('.checkbox-icon-active').style.display = 'none';
+          selectedDateCheckboxes[i].querySelector('.checkbox-icon').style.display = 'block';
+        };
+
+        eventsPageCount = 0;
+
+        document.querySelector('.main-content').innerHTML = '';
+
+        filters = {};
+
+        loadNewEvents(filters);
+      };
+    };
+
+    if (event.target.closest('#type-checkbox')) {
+      const typeCheckbox = document.querySelectorAll('#type-checkbox');
+      const typeSelected = [];
+
+      for (let i = 0; i < typeCheckbox.length; i++) {
+        if (typeCheckbox[i].getAttribute('data-checked') == 'true') {
+          typeSelected.push(typeCheckbox[i].querySelector('span').innerText.toLocaleLowerCase().replace(/-/g, '_'));
+        };
+      };
+
+      eventsPageCount = 0;
+
+      document.querySelector('.main-content').innerHTML = '';
+
+      if (typeSelected.length) {
+        filters = {
+          event_types: typeSelected
+        };
+      } else {
+        filters = {};
+      };
+
+      loadNewEvents(filters);
+    };
+
+    if (event.target.closest('.unselect-all-types')) {
+      const selectedTypeCheckboxes = document.querySelectorAll('#type-checkbox[data-checked="true"]');
+      
+      if (selectedTypeCheckboxes.length) {
+        for (let i = 0; i < selectedTypeCheckboxes.length; i++) {
+          selectedTypeCheckboxes[i].setAttribute('data-checked', 'false');
+          selectedTypeCheckboxes[i].querySelector('.checkbox-icon-active').style.display = 'none';
+          selectedTypeCheckboxes[i].querySelector('.checkbox-icon').style.display = 'block';
+        };
+
+        eventsPageCount = 0;
+
+        document.querySelector('.main-content').innerHTML = '';
+
+        filters = {};
+
+        loadNewEvents(filters);
+      };
+    };
+
     if (event.target.closest('.event-bar')) {
       const eventBar = event.target.closest('.event-bar');
       const oldOpenEventBar = document.querySelector('.event-bar-open');
@@ -118,7 +227,7 @@ window.addEventListener('load', () => {
         oldOpenEventBar.classList.remove('event-bar-open');
 
       eventBar.classList.add('event-bar-open');
-    }
+    };
 
     if (event.target.classList.contains('pages-each-scroll-button') && !event.target.classList.contains('pages-scroll-buttons-active')) {
       currentSlide = Number(event.target.getAttribute('data-index'));
@@ -128,7 +237,7 @@ window.addEventListener('load', () => {
       event.target.classList.add('pages-scroll-buttons-active');
 
       lastTimeOnSlide = (new Date).getTime();
-    }
+    };
   });
 
   allWrapper.addEventListener('scroll', () => {
@@ -137,7 +246,7 @@ window.addEventListener('load', () => {
       !isEventsLoading &&
       (allWrapper.scrollHeight - (allWrapper.scrollTop + window.document.body.offsetHeight + allFooterHeight)) < NEW_EVENT_LOAD_SCROLL_DISTANCE
     ) {
-      loadNewEvents();
+      loadNewEvents(filters);
     }  
   });
 });

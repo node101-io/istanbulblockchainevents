@@ -66,7 +66,7 @@ block main
               p.event-name(class=slide.is_side ? 'side-events' : 'main-events')= slide.name
               .box-bottom-info
                 p.event-info= slide.slider_formatted_date
-                p.event-info= EVENT_TYPES.find(each => each.toLocaleLowerCase().split('_').join('') == slide.event_type.split('-').join(''))
+                p.event-info= EVENT_TYPES[['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(slide.event_type)]
         .pages-scroll-buttons
           each slide, i in slider
             if i == 0
@@ -86,7 +86,7 @@ block main
       .sidebar
         form.bar#search-bar
           .bar-content
-            input(type='text' placeholder = 'Search')
+            input.general-events-search-input#events-search-input(type='text' placeholder='Search' value=events_search)
             svg.search-icon(viewbox='0 0 24 25' xmlns='http://www.w3.org/2000/svg')
               path(d='M21.75 21.1895L16.0859 15.5254C17.447 13.8914 18.1257 11.7956 17.9808 9.67399C17.836 7.55236 16.8788 5.56824 15.3083 4.13438C13.7378 2.70053 11.675 1.92733 9.549 1.97565C7.42298 2.02396 5.39742 2.89006 3.89371 4.39377C2.39 5.89748 1.5239 7.92304 1.47558 10.0491C1.42727 12.1751 2.20047 14.2379 3.63432 15.8084C5.06818 17.3788 7.0523 18.336 9.17393 18.4809C11.2956 18.6257 13.3914 17.947 15.0253 16.586L20.6894 22.2501L21.75 21.1895ZM2.99999 10.2501C2.99999 8.91503 3.39588 7.60999 4.13757 6.49996C4.87927 5.38992 5.93348 4.52476 7.16688 4.01387C8.40028 3.50298 9.75748 3.3693 11.0669 3.62975C12.3762 3.8902 13.579 4.53308 14.523 5.47708C15.467 6.42109 16.1098 7.62382 16.3703 8.9332C16.6307 10.2426 16.4971 11.5998 15.9862 12.8332C15.4753 14.0666 14.6101 15.1208 13.5001 15.8625C12.3901 16.6042 11.085 17.0001 9.74999 17.0001C7.96039 16.9981 6.24466 16.2863 4.97922 15.0208C3.71378 13.7554 3.00198 12.0397 2.99999 10.2501Z' fill='#EEF6FC')
         .bar#date-bar
@@ -96,7 +96,7 @@ block main
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
         .bar-extension-date-selection#date-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
-            strong.select-all-dates All Dates
+            strong.unselect-all-dates Unselect All
             each month in FULL_MONTHS
               div.each-bar-extension-checkbox#date-checkbox(data-checked='false' data-month-index=FULL_MONTHS.indexOf(month))
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -112,9 +112,9 @@ block main
               path(d='M8 11.5L3 6.50002L3.7 5.80002L8 10.1L12.3 5.80002L13 6.50002L8 11.5Z' fill='#D9D9D9')
         .bar-extension-type-selection#type-selection-input-wrapper(style='display: none')
           .bar-extension-checkboxes
-            strong.select-all-types All Types
+            strong.unselect-all-types Unselect All
             each type in EVENT_TYPES
-              div.each-bar-extension-checkbox#type-checkbox(data-checked='false')
+              div.each-bar-extension-checkbox#type-checkbox(data-checked='false' data-type-index=EVENT_TYPES.indexOf(type))
                 svg.checkbox-icon(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
                   rect(x='0.25' y='0.25' width='11.5' height='11.5' rx='1.75' stroke='#EEF6FC' stroke-width='0.5')
                 svg.checkbox-icon-active(viewbox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -131,7 +131,7 @@ block main
             .bar-information
               .event-title(class=event.is_side ? 'side-events' : 'main-events')= event.name
               .event-date= event.formatted_date
-              .event-type= EVENT_TYPES.find(each => each.toLocaleLowerCase() == event.event_type)
+              .event-type= EVENT_TYPES[['summit', 'party', 'conference', 'hackathon', 'meetup', 'workshop', 'dinner', 'brunch', 'co_living', 'co_work', 'nfts', 'tour', 'other'].indexOf(event.event_type)]
             .about-the-event-mobile-version
               img.about-the-event-image(src= event.logo alt='')
               p #{event.description}

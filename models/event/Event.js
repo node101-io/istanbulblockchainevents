@@ -178,8 +178,8 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
     is_completed: true,
     is_deleted: false,
     $or: [
-      { start_date: { $gte: new Date('2023-12-1') } },
-      { end_date: { $lte: new Date() } }
+      { start_date: { $gte: new Date() } },
+      { end_date: { $gte: new Date() } }
     ]
   };
 
@@ -202,11 +202,30 @@ EventSchema.statics.findEventsByFilters = function (data, callback) {
   if (data.event_type && typeof data.event_type == 'string' && EVENT_TYPES.includes(data.event_type))
     filters.event_type = data.event_type;
 
-  if (data.date_after && typeof data.date_after == 'string' && !isNaN(new Date(data.date_after)))
-    filters.start_date = { $gte: new Date(data.date_after) };
+  if (data.event_types && Array.isArray(data.event_types) && data.event_types.length && data.event_types.length < MAX_DATABASE_TEXT_FIELD_LENGTH)
+    filters.event_type = { $in: data.event_types };
 
-  if (data.date_before && typeof data.date_before == 'string' && !isNaN(new Date(data.date_before)))
-    filters.start_date = { $lte: new Date(data.date_before) };
+  let dateConditions = [];
+
+  if (data.date_after && Array.isArray(data.date_after) && data.date_after.length && data.date_after.length < MAX_DATABASE_TEXT_FIELD_LENGTH) {
+    for (let i = 0; i < data.date_after.length; i++) {
+      const startDate = data.date_after[i];
+      const endDate = data.date_before[i];
+        
+      if (new Date(startDate) < new Date(endDate)) {
+        dateConditions.push({
+          '$and': [
+            { start_date: { $gte: new Date(startDate) } },
+            { start_date: { $lte: new Date(endDate) } }
+          ]
+        });
+      };
+    };
+  };
+    
+  if (dateConditions.length) {
+    filters['$or'] = dateConditions;
+  };
 
   if (data.location && typeof data.location == 'string' && data.location.trim().length && data.location.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
     filters.location = { $regex: data.location.trim(), $options: 'i' };
@@ -283,14 +302,33 @@ EventSchema.statics.findEventCountByFilters = function (data, callback) {
   if (data.name && typeof data.name == 'string' && data.name.trim().length && data.name.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
     filters.name = { $regex: data.name.trim(), $options: 'i'};
 
-  if (data.event_type && typeof data.event_type == 'string' && data.event_type.trim().length && data.event_type.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
-    filters.event_type = { $regex: data.event_type.trim(), $options: 'i' };
+  if (data.event_type && typeof data.event_type == 'string' && EVENT_TYPES.includes(data.event_type))
+    filters.event_type = data.event_type;
 
-  if (data.date_after && typeof data.date_after == 'string' && !isNaN(new Date(data.date_after)))
-    filters.start_date = { $gte: new Date(data.date_after) };
+  if (data.event_types && Array.isArray(data.event_types) && data.event_types.length && data.event_types.length < MAX_DATABASE_TEXT_FIELD_LENGTH)
+    filters.event_type = { $in: data.event_types };
 
-  if (data.date_before && typeof data.date_before == 'string' && !isNaN(new Date(data.date_before)))
-    filters.start_date = { $lte: new Date(data.date_before) };
+  let dateConditions = [];
+
+  if (data.date_after && Array.isArray(data.date_after) && data.date_after.length && data.date_after.length < MAX_DATABASE_TEXT_FIELD_LENGTH) {
+    for (let i = 0; i < data.date_after.length; i++) {
+      const startDate = data.date_after[i];
+      const endDate = data.date_before[i];
+        
+      if (new Date(startDate) < new Date(endDate)) {
+        dateConditions.push({
+          '$and': [
+            { start_date: { $gte: new Date(startDate) } },
+            { start_date: { $lte: new Date(endDate) } }
+          ]
+        });
+      };
+    };
+  };
+    
+  if (dateConditions.length) {
+    filters['$or'] = dateConditions;
+  };
 
   if (data.location && typeof data.location == 'string' && data.location.trim().length && data.location.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
     filters.location = { $regex: data.location.trim(), $options: 'i' };

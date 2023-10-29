@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 
     return res.json({
       success: true,
-      search: events_data.search,
+      events_search: events_data.search,
       limit: events_data.limit,
       page: events_data.page,
       events: events_data.events

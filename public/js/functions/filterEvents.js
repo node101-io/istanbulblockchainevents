@@ -3,21 +3,19 @@ window.addEventListener('load', () => {
   const searchBar = document.forms['search-bar'].querySelector('input');
 
   searchBar.addEventListener('keyup', (e) => {
-
     const term = e.target.value.toLowerCase();
     const events = eventsSection.getElementsByClassName("event-bar");
 
     Array.from(events).forEach(event => {
-
       const eventName = event.querySelector(".event-title");
+
       if(eventName.textContent.toLowerCase().indexOf(term) != -1) {
         event.style.display = 'flex';
       } else {
         event.style.display = 'none';
-      }
+      };
 
     });
-
   });
 
   const customDateCheckboxes = document.querySelectorAll('.bar-extension-date-selection .bar-extension-checkboxes div');
@@ -25,37 +23,36 @@ window.addEventListener('load', () => {
 
   customDateCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('click', () => {
-        const isChecked = checkbox.getAttribute('data-checked') === 'true';
+      const isChecked = checkbox.getAttribute('data-checked') === 'true';
 
         if (isChecked) {
-            checkbox.setAttribute('data-checked', 'false');
-            checkbox.querySelector('.checkbox-icon-active').style.display = 'none';
-            checkbox.querySelector('.checkbox-icon').style.display = 'block';
+          checkbox.setAttribute('data-checked', 'false');
+          checkbox.querySelector('.checkbox-icon-active').style.display = 'none';
+          checkbox.querySelector('.checkbox-icon').style.display = 'block';
         } else {
-            checkbox.setAttribute('data-checked', 'true');
-            checkbox.querySelector('.checkbox-icon-active').style.display = 'block';
-            checkbox.querySelector('.checkbox-icon').style.display = 'none';
-        }
+          checkbox.setAttribute('data-checked', 'true');
+          checkbox.querySelector('.checkbox-icon-active').style.display = 'block';
+          checkbox.querySelector('.checkbox-icon').style.display = 'none';
+        };
 
     });
-
   });
 
   customDateCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-        const selectedMonth = checkbox.lastChild.textContent;
-        const events = eventsArea.getElementsByClassName("event-bar");
+      const selectedMonth = checkbox.lastChild.textContent;
+      const events = eventsArea.getElementsByClassName("event-bar");
 
-        Array.from(events).forEach(event => {
+      Array.from(events).forEach(event => {
+        const eventDate = event.querySelector(".bar-information .event-date");
 
-          const eventDate = event.querySelector(".bar-information .event-date");
-          if(eventDate.textContent.toLowerCase().includes(selectedMonth) != -1) {
-            event.style.display = 'flex';
-          } else {
-            event.style.display = 'none';
-          }
+        if(eventDate.textContent.toLowerCase().includes(selectedMonth) != -1) {
+          event.style.display = 'flex';
+        } else {
+          event.style.display = 'none';
+        };
       
-        });
+      });
     });
   });
 
@@ -63,37 +60,38 @@ window.addEventListener('load', () => {
 
   customTypeCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('click', () => {
-        const isChecked = checkbox.getAttribute('data-checked') === 'true';
+      const isChecked = checkbox.getAttribute('data-checked') === 'true';
 
-        if (isChecked) {
-            checkbox.setAttribute('data-checked', 'false');
-            checkbox.querySelector('.checkbox-icon-active').style.display = 'none';
-            checkbox.querySelector('.checkbox-icon').style.display = 'block';
-        } else {
-            checkbox.setAttribute('data-checked', 'true');
-            checkbox.querySelector('.checkbox-icon-active').style.display = 'block';
-            checkbox.querySelector('.checkbox-icon').style.display = 'none';
-        }
+      if (isChecked) {
+        checkbox.setAttribute('data-checked', 'false');
+        checkbox.querySelector('.checkbox-icon-active').style.display = 'none';
+        checkbox.querySelector('.checkbox-icon').style.display = 'block';
+      } else {
+        checkbox.setAttribute('data-checked', 'true');
+        checkbox.querySelector('.checkbox-icon-active').style.display = 'block';
+        checkbox.querySelector('.checkbox-icon').style.display = 'none';
+      };
 
     });
-
   });
 
   customTypeCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-        const selectedType = checkbox.lastChild.textContent;
-        const events = eventsArea.getElementsByClassName("event-bar");
+      const selectedType = checkbox.lastChild.textContent;
+      const events = eventsArea.getElementsByClassName("event-bar");
 
-        Array.from(events).forEach(event => {
+      Array.from(events).forEach(event => {
+        const eventType = event.querySelector(".bar-information .event-type");
 
-          const eventType = event.querySelector(".bar-information .event-type");
-          if(eventType.textContent.toLowerCase().includes(selectedType) != -1) {
-            event.style.display = 'flex';
-          } else {
-            event.style.display = 'none';
-          }
+        if(eventType.textContent.toLowerCase().includes(selectedType) != -1) {
+          event.style.display = 'flex';
+        } else {
+          event.style.display = 'none';
+        };
       
-        });
+      });
     });
   });
+
+  
 });

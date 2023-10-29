@@ -21,7 +21,7 @@ module.exports = (req, res) => {
         includes: {
           external: {
             css: ['general', 'header', 'page'],
-            js: ['ancestorWithClassName', 'collapsingSideBar', 'event', 'filterEvents', 'header', 'page', 'serverRequest', 'toggleBarContent']
+            js: ['ancestorWithClassName', 'collapsingSideBarEvents', 'event', 'filterEvents', 'header', 'page', 'serverRequest', 'toggleBarContent']
           },
           meta:{
             title: 'İstanbul Blockchain Events',
