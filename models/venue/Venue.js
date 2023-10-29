@@ -9,6 +9,7 @@ const DEFAULT_DOCUMENT_COUNT_PER_QUERY = 20;
 const MAX_DATABASE_LONG_TEXT_FIELD_LENGTH = 1e5;
 const MAX_DATABASE_TEXT_FIELD_LENGTH = 1e4;
 const MAX_DOCUMENT_COUNT_PER_QUERY = 1e2;
+const DISTRICT_LIST = [ 'fatih', 'beyoglu', 'halic', 'sisli', 'besiktas', 'sariyer', 'kadikoy', 'uskudar', 'beykoz', 'adalar' ];
 
 const Schema = mongoose.Schema;
 
@@ -175,8 +176,11 @@ VenueSchema.statics.findVenuesByFilters = function (data, callback) {
   if (data.name && typeof data.name == 'string' && data.name.trim().length && data.name.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
     filters.name = { $regex: data.name.trim(), $options: 'i' };
 
-  if (data.district && typeof data.district == 'string' && data.district.trim().length && data.district.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
-    filters.district = { $regex: data.district.trim(), $options: 'i' };
+  if (data.district && typeof data.district == 'string' && DISTRICT_LIST.includes(data.district))
+    filters.district = data.district;
+
+  if (data.districts && Array.isArray(data.districts) && data.districts.length && data.districts.length < MAX_DOCUMENT_COUNT_PER_QUERY)
+    filters.district = { $in: data.districts };
 
   if (data.more_seated_capacity && !isNaN(parseInt(data.more_seated_capacity)) && parseInt(data.more_seated_capacity) > 0)
     filters.seated_capacity = { $gte: parseInt(data.more_seated_capacity) };
@@ -257,8 +261,11 @@ VenueSchema.statics.findVenueCountByFilters = function (data, callback) {
   if (data.name && typeof data.name == 'string' && data.name.trim().length && data.name.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
     filters.name = { $regex: data.name.trim(), $options: 'i' };
 
-  if (data.district && typeof data.district == 'string' && data.district.trim().length && data.district.trim().length < MAX_DATABASE_TEXT_FIELD_LENGTH)
-    filters.district = { $regex: data.district.trim(), $options: 'i' };
+  if (data.district && typeof data.district == 'string' && DISTRICT_LIST.includes(data.district))
+    filters.district = data.district;
+
+  if (data.districts && Array.isArray(data.districts) && data.districts.length && data.districts.length < MAX_DOCUMENT_COUNT_PER_QUERY)
+    filters.district = { $in: data.districts };
 
   if (data.more_seated_capacity && !isNaN(parseInt(data.more_seated_capacity)) && parseInt(data.more_seated_capacity) > 0)
     filters.seated_capacity = { $gte: parseInt(data.more_seated_capacity) };

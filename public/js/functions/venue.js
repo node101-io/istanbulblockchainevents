@@ -3,7 +3,6 @@ function createVenue(venue) {
 
   const venueBar = document.createElement('div');
   venueBar.classList.add('venue-bar');
-  venueBar.classList.add('clicked');
 
   const barInformation = document.createElement('div');
   barInformation.classList.add('bar-information');
@@ -26,7 +25,7 @@ function createVenue(venue) {
     seatedCapacity.appendChild(seatedCapacityText);
     seatedCapacity.appendChild(seatedCapacityValue);
     barInformation.appendChild(seatedCapacity);
-  }
+  };
 
   if (venue.standing_capacity) {
     const standingCapacity = document.createElement('div');
@@ -40,7 +39,7 @@ function createVenue(venue) {
     standingCapacity.appendChild(standingCapacityText);
     standingCapacity.appendChild(standingCapacityValue);
     barInformation.appendChild(standingCapacity);
-  }
+  };
 
   venueBar.appendChild(barInformation);
 
@@ -88,6 +87,9 @@ function createVenue(venue) {
   const aboutVenueSectionLeft = document.createElement('div');
   aboutVenueSectionLeft.classList.add('about-the-venue-section-left');
 
+  const aboutTheVenue = document.createElement('h3');
+  aboutTheVenue.innerText = 'About the Venue';
+
   const aboutVenueSectionRight = document.createElement('div');
   aboutVenueSectionRight.classList.add('about-the-venue-section-right');
 
@@ -123,6 +125,7 @@ function createVenue(venue) {
     <p>${venue.address}</p>
   `;
 
+  aboutVenueSectionLeft.appendChild(aboutTheVenue);
   aboutVenueSectionLeft.appendChild(venueDescription);
   aboutVenueSectionLeft.appendChild(linkButton);
   aboutVenueSectionLeft.appendChild(venueContactInfo);
@@ -135,14 +138,4 @@ function createVenue(venue) {
   venueBar.appendChild(aboutVenue);
 
   mainContent.appendChild(venueBar);
-}
-
-window.addEventListener('load', () => {
-  document.addEventListener('click', event => {
-
-  });
-
-  document.addEventListener('mouseover', event => {
-    
-  });
-});
+};

@@ -1,4 +1,4 @@
-const VENUE_COUNT = 5;
+const VENUE_COUNT = 7;
 
 const Venue = require('../../../models/venue/Venue');
 

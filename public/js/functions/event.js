@@ -10,24 +10,26 @@ const SHORT_MONTHS = [
 
 const EVENT_TYPES = [
   "Summit", "Party", "Conference", "Hackathon", "Meetup", "Workshop",
-  "Dinner", "Brunch", "Co-living", "Co-work", "NFTs", "Tour", "Other"
+  "Dinner", "Brunch", "Co-Living", "Co-Work", "NFTs", "Tour", "Other"
 ];
 
 function createEvent(event) {
   const mainContent = document.querySelector('.main-content');
 
   const lastEvent = mainContent.lastElementChild;
-  const eventDateContent = lastEvent.querySelector('.event-date').textContent;
-  const monthFromLastEvent = eventDateContent.split(' ')[0];
+  if (lastEvent) {
+    const eventDateContent = lastEvent.querySelector('.event-date').textContent;
+    const monthFromLastEvent = eventDateContent.split(' ')[0];
 
-  let currentEventDate = new Date(event.start_date);
+    let currentEventDate = new Date(event.start_date);
 
-  if (monthFromLastEvent && SHORT_MONTHS[currentEventDate.getMonth()] !== monthFromLastEvent) {
-    const monthSeparator = document.createElement('span');
-    monthSeparator.className = 'month-separator';
-    monthSeparator.innerText = FULL_MONTHS[currentEventDate.getMonth()];
-    mainContent.appendChild(monthSeparator);
-  }
+    if (monthFromLastEvent && SHORT_MONTHS[currentEventDate.getMonth()] !== monthFromLastEvent) {
+      const monthSeparator = document.createElement('span');
+      monthSeparator.className = 'month-separator';
+      monthSeparator.innerText = FULL_MONTHS[currentEventDate.getMonth()];
+      mainContent.appendChild(monthSeparator);
+    };
+  };
 
   const eventBar = document.createElement('div');
   eventBar.classList.add('event-bar');
@@ -145,14 +147,4 @@ function createEvent(event) {
   eventBar.appendChild(aboutEvent);
 
   mainContent.appendChild(eventBar);
-}
-
-window.addEventListener('load', () => {
-  document.addEventListener('click', event => {
-
-  });
-
-  document.addEventListener('mouseover', event => {
-    
-  });
-});
+};
